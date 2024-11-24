@@ -1,0 +1,26 @@
+.sectionCards {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 112px;
+
+	&__heading {
+		margin-bottom: 36px;
+		font-weight: 700;
+		font-size: 48px;
+		color: #1c1c1e;
+	}
+
+	&__cards {
+		max-width: 518px;
+		display: flex;
+		justify-content: space-between;
+		row-gap: 16px;
+		flex-wrap: wrap;
+
+		& img {
+			width: 254.04px;
+			height: 150px;
+		}
+	}
+}

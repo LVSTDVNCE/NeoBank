@@ -1,0 +1,23 @@
+.sectionWorld {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 48.23px;
+
+	&__heading {
+		font-weight: 500;
+		font-size: 30px;
+		line-height: 50px;
+		color: #1c1c1c;
+		margin-bottom: 8px;
+	}
+
+	&__para {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 50px;
+		color: #1c1c1e;
+		margin-bottom: 48px;
+	}
+}

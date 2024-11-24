@@ -1,21 +1,9 @@
-import footerLogo from './../../../assets/FooterLogo/footerLogo.png'
-import { Link } from 'react-router-dom'
+import footerLogo from './../../assets/images/png/footerLogo.png'
 import styles from './Footer.module.scss'
+import NavBar from '../../ui/NavBar/NavBar'
+import { footerNavItems } from '../../constants/footerNavItems'
 
 export const Footer = () => {
-	const footerItems = [
-		{ id: 1, link: '/', text: 'About bank' },
-		{ id: 2, link: '/', text: 'Ask a Question' },
-		{ id: 3, link: '/', text: 'Quality of service' },
-		{ id: 4, link: '/', text: 'Requisites' },
-		{ id: 5, link: '/', text: 'Press center' },
-		{ id: 6, link: '/', text: 'Bank career' },
-		{ id: 7, link: '/', text: 'Investors' },
-		{ id: 8, link: '/', text: 'Analytics' },
-		{ id: 9, link: '/', text: 'Business and processes' },
-		{ id: 10, link: '/', text: 'Compliance and business ethics' },
-	]
-
 	return (
 		<footer className={styles.footer}>
 			<section className={styles.footer__section}>
@@ -30,13 +18,7 @@ export const Footer = () => {
 						<a href='mailto:info@neoflex.ru'>info@neoflex.ru</a>
 					</address>
 				</div>
-				<ul className={styles.footer__list}>
-					{footerItems.map(item => (
-						<li key={item.id}>
-							<Link to={item.link}>{item.text}</Link>
-						</li>
-					))}
-				</ul>
+				<NavBar NavBarItems={footerNavItems} />
 				<p className={styles.footer__para}>
 					We use cookies to personalize our services and improve the user
 					experience of our website. Cookies are small files containing

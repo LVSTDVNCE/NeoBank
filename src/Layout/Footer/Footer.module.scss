@@ -43,32 +43,13 @@
 		}
 	}
 
-	&__list {
-		display: flex;
-		column-gap: 32px;
-		row-gap: 8px;
-		flex-wrap: wrap;
-		margin-bottom: 32px;
-		padding-bottom: 28px;
-		border-bottom: 2px solid white;
-
-		& a {
-			font-weight: 500;
-			font-size: 16px;
-			letter-spacing: 0.8px;
-			color: black;
-			transition: 100ms;
-
-			&:hover {
-				color: #b2a35f;
-			}
-		}
-	}
-
 	&__para {
 		font-weight: 500;
 		font-size: 16px;
 		letter-spacing: 0.5px;
 		color: #2d3748;
+		border-top: 2px solid white;
+		margin-top: 32px;
+		padding-top: 28px;
 	}
 }

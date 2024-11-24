@@ -1,0 +1,46 @@
+.sectionFeatures {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 48.29px;
+
+	&__heading {
+		font-family: 'Rubik', sans-serif;
+		font-size: 35px;
+		font-weight: 500;
+		color: #0b132a;
+		margin-bottom: 25px;
+		line-height: 50px;
+	}
+
+	&__para {
+		font-family: 'Rubik', sans-serif;
+		font-size: 16px;
+		color: #4f5665;
+		margin-bottom: 25px;
+		line-height: 30px;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		font-family: 'Rubik', sans-serif;
+		font-size: 14px;
+		color: #4f5665;
+		line-height: 30px;
+
+		& li {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
+
+		& li::before {
+			width: 24px;
+			height: 24px;
+			content: url('./../../../assets/icons/check-circle.png');
+		}
+	}
+}

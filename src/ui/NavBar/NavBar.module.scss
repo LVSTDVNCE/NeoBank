@@ -1,0 +1,22 @@
+.navigation {
+	padding: 7px 0 7px;
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 40px;
+		row-gap: 8px;
+	}
+
+	&__list a {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 112%;
+		color: #1d1929;
+		transition: 100ms;
+
+		&:hover {
+			color: #b2a35f;
+		}
+	}
+}
