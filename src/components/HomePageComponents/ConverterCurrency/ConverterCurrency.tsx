@@ -1,28 +1,16 @@
 import { useEffect, useState } from 'react'
-import styles from './ConverterCurrency.module.scss'
 import { fetchExchangeRates } from './../../../api/apiConverterCurrency'
 import { CurrencyRate } from '../../../types/types'
+import { getDate } from '../../../helpers/getDate'
 import iconBank from './../../../assets/icons/iconBank.svg'
+import styles from './ConverterCurrency.module.scss'
 
 export const ConverterCurrency = () => {
 	const [currentDate, setCurrentDate] = useState('')
 	const [listCurrency, setListCurrency] = useState<CurrencyRate[]>([])
 
-	const getDate = () => {
-		const date = new Date()
-		const day = String(date.getDate()).padStart(2, '0')
-		const month = String(date.getMonth() + 1).padStart(2, '0')
-		const year = String(date.getFullYear()).slice(-2)
-		setCurrentDate(`${day}.${month}.${year}`)
-	}
-
 	useEffect(() => {
-		getDate()
-		const intervalId = setInterval(getDate, 1000)
-		return () => clearInterval(intervalId)
-	}, [])
-
-	useEffect(() => {
+		setCurrentDate(getDate())
 		const fetchData = async () => {
 			const result = await fetchExchangeRates()
 			setListCurrency(result)
@@ -52,7 +40,7 @@ export const ConverterCurrency = () => {
 					Update every 15 minutes, MSC{' '}
 					<span className={styles.section__dateToday}>{currentDate}</span>
 				</p>
-				<img className={styles.section__img} src={iconBank} alt='' />
+				<img className={styles.section__img} src={iconBank} alt='Bank' />
 			</div>
 			<button className={styles.section__button}>All courses</button>
 		</section>

@@ -19,7 +19,7 @@ export const SectionSubscribe = () => {
 				<input
 					className={styles.sectionSubscribe__input}
 					type='email'
-					placeholder='email'
+					placeholder='Your email'
 				/>
 				<button className={styles.sectionSubscribe__button}>
 					<img src={sendBtn} alt='send' /> Subscribe

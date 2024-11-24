@@ -17,6 +17,10 @@
 	gap: 20px;
 	position: relative;
 
+	&__wrapperLeft {
+		max-width: 440px;
+	}
+
 	&__heading {
 		margin-bottom: 24px;
 		font-weight: 500;
@@ -33,7 +37,6 @@
 	}
 
 	&__currencyList {
-		width: 440px;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 32px;
@@ -86,12 +89,14 @@
 	}
 }
 
-@media (max-width: 596px) {
+@media (max-width: 838px) {
 	.section {
 		justify-content: center;
+		padding-bottom: 64px;
 
 		&__wrapperRight {
 			align-items: center;
+			gap: 0;
 		}
 	}
 }

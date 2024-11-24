@@ -1,4 +1,4 @@
-import Button from '../../../ui/Button/Button'
+import { Button } from '../../../ui/Button/Button'
 import styles from './SectionCards.module.scss'
 import card1 from './../../../assets/images/png/card1.png'
 import card2 from './../../../assets/images/png/card2.png'

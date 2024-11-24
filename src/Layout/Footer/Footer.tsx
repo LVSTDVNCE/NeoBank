@@ -1,7 +1,7 @@
+import { NavBar } from '../../ui/NavBar/NavBar'
+import { footerNavItems } from '../../constants/footerNavItems'
 import footerLogo from './../../assets/images/png/footerLogo.png'
 import styles from './Footer.module.scss'
-import NavBar from '../../ui/NavBar/NavBar'
-import { footerNavItems } from '../../constants/footerNavItems'
 
 export const Footer = () => {
 	return (

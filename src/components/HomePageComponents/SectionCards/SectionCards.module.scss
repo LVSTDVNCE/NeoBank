@@ -21,6 +21,19 @@
 		& img {
 			width: 254.04px;
 			height: 150px;
+			border-radius: 15px;
 		}
+	}
+}
+
+@media (max-width: 1147px) {
+	.sectionCards {
+		justify-content: center;
+		gap: 36px;
+	}
+}
+@media (max-width: 529px) {
+	.sectionCards__cards {
+		justify-content: center;
 	}
 }

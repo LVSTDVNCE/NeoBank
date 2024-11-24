@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
+import { INavBar } from '../../types/types'
 import styles from './NavBar.module.scss'
-import { INavBar } from '../../types/NavBar.type'
 
 interface NavBarProps {
 	NavBarItems: INavBar[]
 }
 
-const NavBar: React.FC<NavBarProps> = ({ NavBarItems }) => {
+export const NavBar: React.FC<NavBarProps> = ({ NavBarItems }) => {
 	return (
 		<nav className={styles.navigation}>
 			<ul className={styles.navigation__list}>
@@ -19,5 +19,3 @@ const NavBar: React.FC<NavBarProps> = ({ NavBarItems }) => {
 		</nav>
 	)
 }
-
-export default NavBar
