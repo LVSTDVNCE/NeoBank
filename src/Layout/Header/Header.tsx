@@ -19,8 +19,10 @@ export const Header = () => {
 
 	useEffect(() => {
 		window.addEventListener('load', handleResize)
+		window.addEventListener('resize', handleResize)
 		return () => {
 			window.removeEventListener('load', handleResize)
+			window.addEventListener('resize', handleResize)
 		}
 	}, [])
 
