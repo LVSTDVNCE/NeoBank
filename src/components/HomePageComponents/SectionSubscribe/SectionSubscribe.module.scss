@@ -31,16 +31,16 @@
 	&__headingNews {
 		font-weight: 500;
 		line-height: 1.5;
-		margin-top: 26.82px;
+		margin-top: 27px;
 	}
 
 	&__form {
 		width: 100%;
-		max-width: 524.8px;
-		min-width: 524.8px;
+		max-width: 525px;
+		min-width: 525px;
 		position: relative;
 
-		@media (max-width: 524.8px) {
+		@media (max-width: 525px) {
 			min-width: unset;
 			max-width: 100%;
 		}
@@ -57,20 +57,20 @@
 
 	&__input {
 		width: 100%;
-		padding: 30.88px 20px 30.88px 60px;
+		padding: 31px 20px 31px 60px;
 		font-size: 20px;
 		border-radius: 20px;
 		background-color: #fff;
-		min-width: 524.8px;
+		min-width: 525px;
 
 		&::placeholder {
 			font-family: 'Nunito sans', sans-serif;
 			color: #9092b0;
 			font-size: 20px;
-			line-height: 147.4%;
+			line-height: 147%;
 		}
 
-		@media (max-width: 524.8px) {
+		@media (max-width: 525px) {
 			min-width: unset;
 		}
 	}
@@ -91,7 +91,7 @@
 		cursor: pointer;
 		font-size: 16px;
 		font-weight: 700;
-		line-height: 126.9%;
+		line-height: 127%;
 
 		& img {
 			width: 20px;

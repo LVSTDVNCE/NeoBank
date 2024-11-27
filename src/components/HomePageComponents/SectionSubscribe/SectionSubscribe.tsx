@@ -1,7 +1,7 @@
 import styles from './SectionSubscribe.module.scss'
 import { Link } from 'react-router-dom'
-import email from './../../../assets/icons/email.svg'
-import sendBtn from './../../../assets/icons/sendBtn.svg'
+import email from '@assets/icons/email.svg'
+import sendBtn from '@assets/icons/sendBtn.svg'
 
 export const SectionSubscribe = () => {
 	return (
@@ -11,7 +11,6 @@ export const SectionSubscribe = () => {
 			</Link>
 			<h3 className={styles.sectionSubscribe__heading}>
 				Subscribe Newsletter & get
-				<br />
 				<span className={styles.sectionSubscribe__headingNews}>Bank News</span>
 			</h3>
 			<form className={styles.sectionSubscribe__form}>

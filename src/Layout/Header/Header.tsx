@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from './../../ui/Button/Button'
-import { headerNavItems } from './../../constants/headerNavItems'
-import { NavBar } from '../../ui/NavBar/NavBar'
-import { BurgerMenu } from '../../ui/BurgerMenu/BurgerMenu'
+import { headerNavItems } from '@constants/headerNavItems'
+import { NavBar, Button, BurgerMenu } from '@ui'
 import styles from './Header.module.scss'
 
 export const Header = () => {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { fetchExchangeRates } from './../../../api/apiConverterCurrency'
-import { CurrencyRate } from '../../../types/types'
-import { getDate } from '../../../helpers/getDate'
-import iconBank from './../../../assets/icons/iconBank.svg'
+import { fetchExchangeRates } from '@api/apiConverterCurrency'
+import { CurrencyRate } from 'types/types'
+import { getDate } from '@helpers/getDate'
+import iconBank from '@assets/icons/iconBank.svg'
 import styles from './ConverterCurrency.module.scss'
 
 export const ConverterCurrency = () => {

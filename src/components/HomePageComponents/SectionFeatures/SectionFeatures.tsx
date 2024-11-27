@@ -1,5 +1,6 @@
 import styles from './SectionFeatures.module.scss'
-import developer from './../../../assets/images/png/developer.png'
+import developer from '@assets/images/png/developer.png'
+import { features } from '@constants/SectionFeatures'
 
 export const SectionFeatures = () => {
 	return (
@@ -14,10 +15,9 @@ export const SectionFeatures = () => {
 					own functions each feature
 				</p>
 				<ul className={styles.sectionFeatures__list}>
-					<li>Powerful online protection.</li>
-					<li>Cashback without borders.</li>
-					<li>Personal design</li>
-					<li>Work anywhere in the world</li>
+					{features.map(item => (
+						<li key={item.id}>{item.text}</li>
+					))}
 				</ul>
 			</article>
 		</section>

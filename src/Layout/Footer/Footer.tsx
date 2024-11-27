@@ -1,6 +1,6 @@
-import { NavBar } from '../../ui/NavBar/NavBar'
-import { footerNavItems } from '../../constants/footerNavItems'
-import footerLogo from './../../assets/images/png/footerLogo.png'
+import { NavBar } from '@ui'
+import { footerNavItems } from '@constants/footerNavItems'
+import footerLogo from '@assets/images/png/footerLogo.png'
 import styles from './Footer.module.scss'
 
 export const Footer = () => {

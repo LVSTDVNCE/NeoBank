@@ -3,8 +3,10 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin-bottom: 112px;
+	gap: 20px;
 
 	&__heading {
+		max-width: 610px;
 		margin-bottom: 36px;
 		font-weight: 700;
 		font-size: 48px;
@@ -19,14 +21,14 @@
 		flex-wrap: wrap;
 
 		& img {
-			width: 254.04px;
+			width: 254px;
 			height: 150px;
 			border-radius: 15px;
 		}
 	}
 }
 
-@media (max-width: 1147px) {
+@media (max-width: 1167px) {
 	.sectionCards {
 		justify-content: center;
 		gap: 36px;

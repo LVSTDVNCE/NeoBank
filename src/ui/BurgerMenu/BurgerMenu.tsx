@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styles from './BurgerMenu.module.scss'
-import { NavBar } from '../../ui/NavBar/NavBar'
-import { Button } from './../../ui/Button/Button'
-import { headerNavItems } from './../../constants/headerNavItems'
+import { NavBar, Button } from '@ui'
+import { headerNavItems } from '@constants/headerNavItems'
+import burgerMenu from '@assets/icons/burgerMenu.png'
+import burgerCross from '@assets/icons/burgerCross.png'
 
 export const BurgerMenu: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +15,11 @@ export const BurgerMenu: React.FC = () => {
 	return (
 		<div className={styles.burgerMenu}>
 			<button className={styles.burgerButton} onClick={toggleMenu}>
-				{isOpen ? '✖' : '☰'}
+				{isOpen ? (
+					<img src={burgerCross} alt='burgerMenu' />
+				) : (
+					<img src={burgerMenu} alt='burgerMenu' />
+				)}
 			</button>
 			{isOpen && (
 				<div className={styles.menu}>

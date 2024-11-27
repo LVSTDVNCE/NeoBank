@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { INavBar } from '../../types/types'
+import { INavBar } from 'types/types'
 import styles from './NavBar.module.scss'
 
 interface NavBarProps {

@@ -4,12 +4,13 @@
 }
 
 .burgerButton {
-	font-size: 24px;
+	width: 24px;
+	height: 24px;
 	cursor: pointer;
 }
 
 .menu {
-	width: 164.64px;
+	width: 165px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,7 +18,7 @@
 	border-radius: 20px;
 	position: absolute;
 	top: 100%;
-	left: -164.64px;
+	left: -165px;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
 	z-index: 1000;
 	background-color: #f5f4ff;

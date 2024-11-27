@@ -1,8 +1,8 @@
-import { SectionCards } from '../../components/HomePageComponents/SectionCards/SectionCards'
-import { SectionFeatures } from '../../components/HomePageComponents/SectionFeatures/SectionFeatures'
-import { ConverterCurrency } from './../../components/HomePageComponents/ConverterCurrency/ConverterCurrency'
-import { SectionWorld } from '../../components/HomePageComponents/SectionWorld/SectionWorld'
-import { SectionSubscribe } from '../../components/HomePageComponents/SectionSubscribe/SectionSubscribe'
+import { SectionCards } from '@components/HomePageComponents'
+import { SectionFeatures } from '@components/HomePageComponents'
+import { ConverterCurrency } from '@components/HomePageComponents'
+import { SectionWorld } from '@components/HomePageComponents'
+import { SectionSubscribe } from '@components/HomePageComponents'
 
 export const Home = () => {
 	return (
