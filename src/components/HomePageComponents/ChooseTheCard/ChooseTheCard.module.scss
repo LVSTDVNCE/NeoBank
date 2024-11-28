@@ -1,3 +1,5 @@
+@use './../../../styles/variables.scss' as *;
+
 .sectionCards {
 	display: flex;
 	justify-content: space-between;
@@ -8,9 +10,15 @@
 	&__heading {
 		max-width: 610px;
 		margin-bottom: 36px;
-		font-weight: 700;
-		font-size: 48px;
-		color: #1c1c1e;
+		font-weight: $fw-bold;
+		font-size: $fz-xl;
+		color: $primary-text-color;
+		@media (max-width: 600px) {
+			font-size: $fz-l;
+		}
+		@media (max-width: 450px) {
+			font-size: $fz-xm;
+		}
 	}
 
 	&__cards {
@@ -28,13 +36,18 @@
 	}
 }
 
-@media (max-width: 1167px) {
+@media (max-width: 1185px) {
 	.sectionCards {
 		justify-content: center;
 		gap: 36px;
+
+		&__cards {
+			column-gap: 2px;
+		}
 	}
 }
-@media (max-width: 529px) {
+
+@media (max-width: 547px) {
 	.sectionCards__cards {
 		justify-content: center;
 	}

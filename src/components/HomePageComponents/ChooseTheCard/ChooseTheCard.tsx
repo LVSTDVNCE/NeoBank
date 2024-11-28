@@ -1,8 +1,8 @@
-import { Button } from '@ui'
-import { cards } from '@constants/SectionCards'
-import styles from './SectionCards.module.scss'
+import { Button } from '@ui';
+import { cards } from '@constants/SectionCards';
+import styles from './ChooseTheCard.module.scss';
 
-export const SectionCards = () => {
+export const ChooseTheCard = () => {
 	return (
 		<section className={styles.sectionCards}>
 			<div>
@@ -17,5 +17,5 @@ export const SectionCards = () => {
 				))}
 			</div>
 		</section>
-	)
-}
+	);
+};

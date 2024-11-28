@@ -1,9 +1,10 @@
-import styles from './SectionSubscribe.module.scss'
-import { Link } from 'react-router-dom'
-import email from '@assets/icons/email.svg'
-import sendBtn from '@assets/icons/sendBtn.svg'
+import styles from './Subscribe.module.scss';
+import { Link } from 'react-router-dom';
+import email from '@assets/icons/email.svg';
+import sendBtn from '@assets/icons/sendBtn.svg';
+import { Button } from '@ui';
 
-export const SectionSubscribe = () => {
+export const Subscribe = () => {
 	return (
 		<section className={styles.sectionSubscribe}>
 			<Link to='/' className={styles.sectionSubscribe__link}>
@@ -11,8 +12,8 @@ export const SectionSubscribe = () => {
 			</Link>
 			<h3 className={styles.sectionSubscribe__heading}>
 				Subscribe Newsletter & get
-				<span className={styles.sectionSubscribe__headingNews}>Bank News</span>
 			</h3>
+			<span className={styles.sectionSubscribe__headingNews}>Bank News</span>
 			<form className={styles.sectionSubscribe__form}>
 				<img className={styles.sectionSubscribe__img} src={email} alt='email' />
 				<input
@@ -20,10 +21,10 @@ export const SectionSubscribe = () => {
 					type='email'
 					placeholder='Your email'
 				/>
-				<button className={styles.sectionSubscribe__button}>
-					<img src={sendBtn} alt='send' /> Subscribe
-				</button>
+				<Button text='Subscribe' stylesProps='subscribe'>
+					<img src={sendBtn} alt='send' />
+				</Button>
 			</form>
 		</section>
-	)
-}
+	);
+};

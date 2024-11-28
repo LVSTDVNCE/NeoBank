@@ -1,7 +1,7 @@
-import styles from './SectionWorld.module.scss'
-import world from '@assets/images/svg/world.svg'
+import styles from './WorldMap.module.scss';
+import world from '@assets/images/svg/world.svg';
 
-export const SectionWorld = () => {
+export const WorldMap = () => {
 	return (
 		<section className={styles.sectionWorld}>
 			<figure>
@@ -16,5 +16,5 @@ export const SectionWorld = () => {
 				<img src={world} alt='world map' />
 			</figure>
 		</section>
-	)
-}
+	);
+};

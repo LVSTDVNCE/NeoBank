@@ -1,35 +1,42 @@
+@use './../../../styles/variables.scss' as *;
+
 .sectionFeatures {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	margin-bottom: 48px;
+	font-family: $ff-secondary;
 
 	&__heading {
-		font-family: 'Rubik', sans-serif;
-		font-size: 35px;
-		font-weight: 500;
-		color: #0b132a;
+		font-size: $fz-l;
+		font-weight: $fw-medium;
+		color: $primary-text-color;
 		margin-bottom: 25px;
-		line-height: 50px;
+		line-height: $lh-xl;
+		@media (max-width: 450px) {
+			font-size: $fz-xm;
+			line-height: $lh-112;
+		}
 	}
 
 	&__para {
-		font-family: 'Rubik', sans-serif;
-		font-size: 16px;
-		color: #4f5665;
+		font-size: $fz-m;
+		color: $secondary-text-color;
 		margin-bottom: 25px;
-		line-height: 30px;
+		line-height: $lh-l;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
 	}
 
 	&__list {
 		display: flex;
 		flex-direction: column;
 		gap: 12px;
-		font-family: 'Rubik', sans-serif;
-		font-size: 14px;
-		color: #4f5665;
-		line-height: 30px;
+		font-size: $fz-s;
+		color: $secondary-text-color;
+		line-height: $lh-l;
 
 		& li {
 			display: flex;
@@ -45,7 +52,7 @@
 	}
 }
 
-@media (max-width: 1271px) {
+@media (max-width: 1288px) {
 	.sectionFeatures {
 		justify-content: center;
 		gap: 25px;

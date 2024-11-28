@@ -9,4 +9,4 @@ export const footerNavItems = [
 	{ id: 8, link: '/', text: 'Analytics' },
 	{ id: 9, link: '/', text: 'Business and processes' },
 	{ id: 10, link: '/', text: 'Compliance and business ethics' },
-]
+];

@@ -1,25 +1,40 @@
+@use './../../styles/variables.scss' as *;
+
 .burgerMenu {
 	position: relative;
 	z-index: 100;
-}
 
-.burgerButton {
-	width: 24px;
-	height: 24px;
-	cursor: pointer;
-}
+	.burgerButton {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
 
-.menu {
-	width: 165px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
-	border-radius: 20px;
-	position: absolute;
-	top: 100%;
-	left: -165px;
-	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-	z-index: 1000;
-	background-color: #f5f4ff;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.menu {
+		width: 165px;
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+		border-radius: 20px;
+		position: absolute;
+		top: 100%;
+		left: -165px;
+		box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+		z-index: 1000;
+		background-color: $bg-color-page;
+		display: none;
+
+		&.open {
+			display: flex;
+		}
+
+		@media (min-width: 921px) {
+			display: flex;
+		}
+	}
 }

@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react'
-import { fetchExchangeRates } from '@api/apiConverterCurrency'
-import { CurrencyRate } from 'types/types'
-import { getDate } from '@helpers/getDate'
-import iconBank from '@assets/icons/iconBank.svg'
-import styles from './ConverterCurrency.module.scss'
+import { useEffect, useState } from 'react';
+import { fetchExchangeRates } from '@api/fetchExchangeRates';
+import { CurrencyRate } from 'types';
+import { getDate } from '@helpers/getDate';
+import iconBank from '@assets/icons/iconBank.svg';
+import styles from './ConverterCurrency.module.scss';
 
 export const ConverterCurrency = () => {
-	const [currentDate, setCurrentDate] = useState('')
-	const [listCurrency, setListCurrency] = useState<CurrencyRate[]>([])
+	const [currentDate, setCurrentDate] = useState('');
+	const [listCurrency, setListCurrency] = useState<CurrencyRate[]>([]);
 
 	useEffect(() => {
-		setCurrentDate(getDate())
+		setCurrentDate(getDate());
 		const fetchData = async () => {
-			const result = await fetchExchangeRates()
-			setListCurrency(result)
-		}
-		fetchData()
-		const intervalId = setInterval(fetchData, 900000) // обновление каждые 15 минут
-		return () => clearInterval(intervalId)
-	}, [])
+			const result = await fetchExchangeRates();
+			setListCurrency(result);
+		};
+		fetchData();
+		const intervalId = setInterval(fetchData, 900000); // обновление каждые 15 минут
+		return () => clearInterval(intervalId);
+	}, []);
 
 	return (
 		<section className={styles.section}>
@@ -44,5 +44,5 @@ export const ConverterCurrency = () => {
 			</div>
 			<button className={styles.section__button}>All courses</button>
 		</section>
-	)
-}
+	);
+};

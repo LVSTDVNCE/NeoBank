@@ -1,3 +1,5 @@
+@use './../../styles/variables.scss' as *;
+
 .navigation {
 	padding: 7px 0 7px;
 
@@ -9,14 +11,14 @@
 	}
 
 	&__list a {
-		font-size: 16px;
-		font-weight: 700;
-		line-height: 112%;
-		color: #1d1929;
+		font-size: $fz-m;
+		font-weight: $fw-bold;
+		line-height: $lh-112;
+		color: $primary-text-color;
 		transition: 100ms;
 
 		&:hover {
-			color: #b2a35f;
+			color: $hover-link-color;
 		}
 	}
 }

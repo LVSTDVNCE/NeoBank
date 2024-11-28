@@ -1,14 +1,26 @@
+@use './../../styles/variables.scss' as *;
+
 .footer {
 	width: 100%;
-	max-height: 672px;
+	height: 437px;
 	padding: 0 10px;
-	background-color: #f4f4f4;
+	background: linear-gradient(
+		180deg,
+		rgba(178, 178, 178, 0.2) 0%,
+		rgba(244, 244, 244, 1) 100%
+	);
 	position: absolute;
 	bottom: 0;
 
 	&__section {
 		max-width: 1300px;
 		margin: 96px auto 92px;
+		@media (max-width: 600px) {
+			margin: 96px auto 0px;
+		}
+		@media (max-width: 500px) {
+			margin: 26px auto 0;
+		}
 	}
 
 	&__wrapper {
@@ -18,42 +30,52 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 32px;
+		@media (max-width: 600px) {
+			margin-bottom: 12px;
+			gap: 12px;
+		}
 	}
 
 	&__address {
 		display: flex;
 		gap: 6px;
 		flex-direction: column;
+	}
 
-		& a:first-child {
-			font-weight: 700;
-			font-size: 30px;
-			color: black;
-			transition: 100ms;
-			&:hover {
-				color: #b2a35f;
+	&__link {
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		color: $primary-text-color;
+		transition: color 0.3s;
+		@media (max-width: 600px) {
+			font-size: $fz-m;
+		}
+
+		&:last-child {
+			color: $secondary-text-color;
+			font-size: $fz-m;
+			font-weight: $fw-medium;
+			@media (max-width: 600px) {
+				font-size: $fz-s;
 			}
 		}
 
-		& a:last-child {
-			font-weight: 500;
-			font-size: 16px;
-			letter-spacing: 0.8px;
-			color: #2d3748;
-			transition: 100ms;
-			&:hover {
-				color: #b2a35f;
-			}
+		&:hover {
+			color: $hover-link-color;
 		}
 	}
 
 	&__para {
-		font-weight: 500;
-		font-size: 16px;
-		letter-spacing: 0.5px;
-		color: #2d3748;
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		color: $secondary-text-color;
 		border-top: 2px solid white;
 		margin-top: 32px;
 		padding-top: 28px;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+			margin-top: 12px;
+			padding-top: 8px;
+		}
 	}
 }

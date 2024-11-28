@@ -1,3 +1,5 @@
+@use './../../../styles/variables.scss' as *;
+
 .section {
 	max-width: 1300px;
 	min-height: 366px;
@@ -23,17 +25,26 @@
 
 	&__heading {
 		margin-bottom: 24px;
-		font-weight: 500;
-		font-size: 30px;
-		line-height: 50px;
-		color: #1c1c1e;
+		font-weight: $fw-medium;
+		font-size: $fz-l;
+		line-height: $lh-xl;
+		color: $primary-text-color;
+		@media (max-width: 450px) {
+			font-size: $fz-xm;
+			line-height: $lh-l;
+			margin-bottom: 12px;
+		}
 	}
 
 	&__para {
-		font-weight: 500;
-		font-size: 20px;
-		line-height: 50px;
+		font-weight: $fw-medium;
+		font-size: $fz-xm;
+		line-height: $lh-xl;
 		margin-bottom: 32px;
+		@media (max-width: 450px) {
+			font-size: $fz-m;
+			margin-bottom: 18px;
+		}
 	}
 
 	&__currencyList {
@@ -42,18 +53,25 @@
 		gap: 32px;
 		padding: 0;
 		list-style-type: none;
+		@media (max-width: 450px) {
+			font-size: $fz-s;
+			gap: 24px;
+		}
 	}
 
 	&__currencyList li {
 		align-self: center;
 		justify-self: center;
-		font-weight: 700;
+		font-weight: $fw-bold;
 		font-size: 20px;
-		color: #808080;
+		color: $secondary-text-color;
+		@media (max-width: 450px) {
+			font-size: $fz-s;
+		}
 	}
 
 	&__currencyList span {
-		color: black;
+		color: $primary-text-color;
 		margin-left: 20px;
 	}
 
@@ -65,9 +83,12 @@
 	}
 
 	&__date {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 50px;
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-xl;
+		@media (max-width: 450px) {
+			font-size: $fz-s;
+		}
 	}
 
 	&__img {
@@ -81,15 +102,20 @@
 		bottom: 32px;
 		border: none;
 		background: transparent;
-		font-weight: 700;
-		line-height: 112%;
-		color: white;
+		font-weight: $fw-bold;
+		line-height: $lh-112;
+		color: $button-text-color;
 		font-size: 20px;
 		cursor: pointer;
+		transition: color 0.3s;
+
+		&:hover {
+			color: #1c1c1e;
+		}
 	}
 }
 
-@media (max-width: 838px) {
+@media (max-width: 854px) {
 	.section {
 		justify-content: center;
 		padding-bottom: 64px;

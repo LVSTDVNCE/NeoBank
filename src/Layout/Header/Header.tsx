@@ -1,42 +1,24 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { headerNavItems } from '@constants/headerNavItems'
-import { NavBar, Button, BurgerMenu } from '@ui'
-import styles from './Header.module.scss'
+import { Link } from 'react-router-dom';
+import { NavBar, Button, BurgerMenu } from '@ui';
+import styles from './Header.module.scss';
+import { headerNavItems } from '@constants/headerNavItems';
 
 export const Header = () => {
-	const [isAdaptive, setIsAdaptive] = useState(false)
-
-	const handleResize = () => {
-		if (window.innerWidth <= 920) {
-			setIsAdaptive(true)
-		} else {
-			setIsAdaptive(false)
-		}
-	}
-
-	useEffect(() => {
-		window.addEventListener('load', handleResize)
-		window.addEventListener('resize', handleResize)
-		return () => {
-			window.removeEventListener('load', handleResize)
-			window.addEventListener('resize', handleResize)
-		}
-	}, [])
-
 	return (
 		<header className={styles.header}>
-			<Link className={styles.header__logo} to='/'>
-				NeoBank
-			</Link>
-			{isAdaptive ? (
+			<div className={styles.desktopHeader}>
+				<Link className={styles.header__logo} to='/'>
+					NeoBank
+				</Link>
+				<NavBar NavBarItems={headerNavItems} />
+				<Button text={'Online Bank'} />
+			</div>
+			<div className={styles.mobileHeader}>
+				<Link className={styles.header__logo} to='/'>
+					NeoBank
+				</Link>
 				<BurgerMenu />
-			) : (
-				<>
-					<NavBar NavBarItems={headerNavItems} />
-					<Button text={'Online Bank'} />
-				</>
-			)}
+			</div>
 		</header>
-	)
-}
+	);
+};

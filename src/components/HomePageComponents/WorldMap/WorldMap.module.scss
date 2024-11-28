@@ -1,0 +1,34 @@
+@use './../../../styles/variables.scss' as *;
+
+.sectionWorld {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 48px;
+	text-align: center;
+
+	&__heading {
+		font-weight: $fw-medium;
+		font-size: $fz-l;
+		line-height: $lh-xl;
+		color: $primary-text-color;
+		margin-bottom: 8px;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+			line-height: $lh-l;
+		}
+	}
+
+	&__para {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-xl;
+		color: $primary-text-color;
+		margin-bottom: 48px;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+			line-height: $lh-l;
+		}
+	}
+}

@@ -1,3 +1,5 @@
+@use './../../styles/variables.scss' as *;
+
 .header {
 	max-width: 1300px;
 	height: 64px;
@@ -8,10 +10,31 @@
 	justify-content: space-between;
 
 	&__logo {
-		font-size: 24px;
-		font-weight: 700;
-		line-height: 112%;
-		letter-spacing: 2%;
-		color: #b4387a;
+		font-size: $fz-xm;
+		font-weight: $fw-bold;
+		line-height: $lh-112;
+		color: $logo-color;
+	}
+
+	.desktopHeader {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@media (max-width: 920px) {
+			display: none;
+		}
+	}
+
+	.mobileHeader {
+		display: none;
+
+		@media (max-width: 920px) {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 }

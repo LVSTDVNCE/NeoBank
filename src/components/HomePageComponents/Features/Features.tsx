@@ -1,8 +1,8 @@
-import styles from './SectionFeatures.module.scss'
-import developer from '@assets/images/png/developer.png'
-import { features } from '@constants/SectionFeatures'
+import styles from './Features.module.scss';
+import developer from '@assets/images/png/developer.png';
+import { features } from '@constants/SectionFeatures';
 
-export const SectionFeatures = () => {
+export const Features = () => {
 	return (
 		<section className={styles.sectionFeatures}>
 			<img src={developer} alt='developer' />
@@ -21,5 +21,5 @@ export const SectionFeatures = () => {
 				</ul>
 			</article>
 		</section>
-	)
-}
+	);
+};

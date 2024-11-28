@@ -1,17 +1,19 @@
-import { SectionCards } from '@components/HomePageComponents'
-import { SectionFeatures } from '@components/HomePageComponents'
-import { ConverterCurrency } from '@components/HomePageComponents'
-import { SectionWorld } from '@components/HomePageComponents'
-import { SectionSubscribe } from '@components/HomePageComponents'
+import {
+	Features,
+	ChooseTheCard,
+	ConverterCurrency,
+	WorldMap,
+	Subscribe,
+} from '@components/index';
 
 export const Home = () => {
 	return (
 		<>
-			<SectionCards />
-			<SectionFeatures />
+			<ChooseTheCard />
+			<Features />
 			<ConverterCurrency />
-			<SectionWorld />
-			<SectionSubscribe />
+			<WorldMap />
+			<Subscribe />
 		</>
-	)
-}
+	);
+};

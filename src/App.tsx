@@ -1,6 +1,6 @@
-import { Route, Routes } from 'react-router-dom'
-import Layout from './Layout/Layout'
-import { Home } from './pages/Home/Home'
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from '@Layout/index';
+import { Home } from '@pages/index';
 
 function App() {
 	return (
@@ -9,7 +9,7 @@ function App() {
 				<Route index element={<Home />} />
 			</Route>
 		</Routes>
-	)
+	);
 }
 
-export default App
+export default App;

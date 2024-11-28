@@ -1,5 +1,5 @@
-export { ConverterCurrency } from './ConverterCurrency/ConverterCurrency'
-export { SectionCards } from './SectionCards/SectionCards'
-export { SectionFeatures } from './SectionFeatures/SectionFeatures'
-export { SectionSubscribe } from './SectionSubscribe/SectionSubscribe'
-export { SectionWorld } from './SectionWorld/SectionWorld'
+export { ConverterCurrency } from './ConverterCurrency/ConverterCurrency';
+export { ChooseTheCard } from './ChooseTheCard/ChooseTheCard';
+export { Features } from './Features/Features';
+export { Subscribe } from './Subscribe/Subscribe';
+export { WorldMap } from './WorldMap/WorldMap';

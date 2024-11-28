@@ -1,15 +1,52 @@
+@use './../../styles/variables.scss' as *;
+
 .button {
-	background-color: #003cff;
+	background-color: $bg-color-button;
 	border-radius: 16px;
 	padding: 16px;
-	color: white;
-	font-family: 'Ubuntu', sans-serif;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 112%;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
 	transition: 150ms;
 
 	&:hover {
-		background-color: #7796c0;
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}
+
+// button for Subscribe from Home
+
+.subscribe {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0px 15px 2px;
+	background-color: $subscribe-button-BgColor;
+	border-radius: 20px;
+	color: $button-text-color;
+	border: none;
+	cursor: pointer;
+	font-size: $fz-m;
+	font-weight: $fw-bold;
+	line-height: $lh-120;
+
+	@media (max-width: 450px) {
+		padding: 0 5px 0 15px;
+		font-size: 0;
+	}
+
+	& img {
+		margin-bottom: 5px;
+		height: 40px;
 	}
 }

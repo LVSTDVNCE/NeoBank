@@ -1,10 +1,17 @@
-import React from 'react'
-import styles from './Button.module.scss'
+import { ReactElement, FC } from 'react';
+import styles from './Button.module.scss';
 
-interface IButton {
-	text: string
-}
+type TButtonProps = {
+	text: string;
+	children?: ReactElement;
+	stylesProps?: string;
+};
 
-export const Button: React.FC<IButton> = ({ text }) => {
-	return <button className={styles.button}>{text}</button>
-}
+export const Button: FC<TButtonProps> = ({ text, children, stylesProps }) => {
+	return (
+		<button className={stylesProps ? `${styles[stylesProps]}` : styles.button}>
+			{children}
+			{text}
+		</button>
+	);
+};

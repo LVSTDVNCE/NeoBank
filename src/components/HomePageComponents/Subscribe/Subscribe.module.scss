@@ -1,3 +1,5 @@
+@use './../../../styles/variables.scss' as *;
+
 .sectionSubscribe {
 	display: flex;
 	flex-direction: column;
@@ -7,31 +9,40 @@
 	margin-bottom: 40px;
 
 	&__link {
-		font-weight: 700;
-		font-size: 1.5rem;
-		line-height: 1.5;
-		letter-spacing: 0.7px;
-		color: #eb801d;
+		font-weight: $fw-bold;
+		font-size: $fz-xm;
+		line-height: $lh-147;
+		color: $support-color;
 		margin-bottom: 20px;
-		text-decoration: none;
+		@media (max-width: 600px) {
+			font-size: $fz-m;
+		}
 	}
 
 	&__heading {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
-		font-weight: 700;
-		font-size: 1.8rem;
-		line-height: 1.2;
-		letter-spacing: 0.7px;
-		color: #1c1c1e;
-		margin-bottom: 62px;
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		line-height: $lh-120;
+		color: $primary-text-color;
+		margin-bottom: 27px;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+			margin-bottom: 17px;
+		}
 	}
 
 	&__headingNews {
-		font-weight: 500;
-		line-height: 1.5;
-		margin-top: 27px;
+		font-size: $fz-l;
+		font-weight: $fw-medium;
+		line-height: $lh-147;
+		margin-bottom: 62px;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+			margin-bottom: 32px;
+		}
 	}
 
 	&__form {
@@ -60,14 +71,20 @@
 		padding: 31px 20px 31px 60px;
 		font-size: 20px;
 		border-radius: 20px;
-		background-color: #fff;
+		background-color: $button-text-color;
 		min-width: 525px;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
 
 		&::placeholder {
-			font-family: 'Nunito sans', sans-serif;
-			color: #9092b0;
+			font-family: $ff-third;
+			color: $secondary-text-color;
 			font-size: 20px;
-			line-height: 147%;
+			line-height: $lh-147;
+			@media (max-width: 600px) {
+				font-size: $fz-s;
+			}
 		}
 
 		@media (max-width: 525px) {
@@ -75,39 +92,15 @@
 		}
 	}
 
-	&__button {
-		position: absolute;
-		top: 50%;
-		right: 20px;
-		transform: translateY(-50%);
-		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 10px 15px;
-		background-color: #686df1;
-		border-radius: 20px;
-		color: #fff;
-		border: none;
-		cursor: pointer;
-		font-size: 16px;
-		font-weight: 700;
-		line-height: 127%;
-
-		& img {
-			width: 20px;
-			height: 22px;
-		}
-	}
-
 	@media (max-width: 370px) {
 		&__input {
-			font-size: 14px;
+			font-size: $fz-s;
 			&::placeholder {
-				font-size: 14px;
+				font-size: $fz-s;
 			}
 		}
 		&__button {
-			font-size: 14px;
+			font-size: $fz-s;
 		}
 	}
 }
