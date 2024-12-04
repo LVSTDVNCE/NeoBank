@@ -95,24 +95,6 @@
 		width: 120px;
 		height: 113px;
 	}
-
-	&__button {
-		position: absolute;
-		left: 32px;
-		bottom: 32px;
-		border: none;
-		background: transparent;
-		font-weight: $fw-bold;
-		line-height: $lh-112;
-		color: $button-text-color;
-		font-size: 20px;
-		cursor: pointer;
-		transition: color 0.3s;
-
-		&:hover {
-			color: #1c1c1e;
-		}
-	}
 }
 
 @media (max-width: 854px) {

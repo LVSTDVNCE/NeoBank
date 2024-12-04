@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { CurrencyRate } from 'types';
+import { ICurrencyRate } from 'types';
 import { apiUrl, currencies } from '@constants/converterCurrency';
 
-export async function fetchExchangeRates(): Promise<CurrencyRate[]> {
+export async function fetchExchangeRates(): Promise<ICurrencyRate[]> {
 	try {
 		const response = await axios.get(apiUrl);
 		const rates = currencies.map(currency => ({

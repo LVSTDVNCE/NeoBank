@@ -4,6 +4,7 @@ import {
 	ConverterCurrency,
 	WorldMap,
 	Subscribe,
+	CurrentNews,
 } from '@components/index';
 
 export const Home = () => {
@@ -13,6 +14,7 @@ export const Home = () => {
 			<Features />
 			<ConverterCurrency />
 			<WorldMap />
+			<CurrentNews />
 			<Subscribe />
 		</>
 	);

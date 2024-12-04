@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export const Footer = () => {
 	const address = [
 		{ id: 1, href: 'tel:+7(495)9842513', text: '+7 (495) 984 25 13' },
-		{ id: 1, href: 'mailto:info@neoflex.ru', text: 'info@neoflex.ru' },
+		{ id: 2, href: 'mailto:info@neoflex.ru', text: 'info@neoflex.ru' },
 	];
 
 	return (

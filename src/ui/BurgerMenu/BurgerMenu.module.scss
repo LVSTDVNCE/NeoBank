@@ -4,17 +4,6 @@
 	position: relative;
 	z-index: 100;
 
-	.burgerButton {
-		cursor: pointer;
-		width: 24px;
-		height: 24px;
-
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-
 	.menu {
 		width: 165px;
 		display: flex;

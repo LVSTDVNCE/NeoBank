@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { fetchExchangeRates } from '@api/fetchExchangeRates';
-import { CurrencyRate } from 'types';
+import { ICurrencyRate } from 'types';
 import { getDate } from '@helpers/getDate';
 import iconBank from '@assets/icons/iconBank.svg';
 import styles from './ConverterCurrency.module.scss';
+import { Button } from '@ui';
 
 export const ConverterCurrency = () => {
 	const [currentDate, setCurrentDate] = useState('');
-	const [listCurrency, setListCurrency] = useState<CurrencyRate[]>([]);
+	const [listCurrency, setListCurrency] = useState<ICurrencyRate[]>([]);
 
 	useEffect(() => {
 		setCurrentDate(getDate());
@@ -42,7 +43,7 @@ export const ConverterCurrency = () => {
 				</p>
 				<img className={styles.section__img} src={iconBank} alt='Bank' />
 			</div>
-			<button className={styles.section__button}>All courses</button>
+			<Button text='All courses' stylesProps='converter' />
 		</section>
 	);
 };

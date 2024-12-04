@@ -14,9 +14,9 @@ export const BurgerMenu = () => {
 
 	return (
 		<div className={styles.burgerMenu}>
-			<button className={styles.burgerButton} onClick={toggleMenu}>
+			<Button stylesProps='burgerButton' onClick={toggleMenu}>
 				<img src={isOpen ? burgerCross : burgerMenu} alt='burgerMenu' />
-			</button>
+			</Button>
 			<div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
 				<NavBar NavBarItems={headerNavItems} />
 				<Button text={'Online Bank'} />
