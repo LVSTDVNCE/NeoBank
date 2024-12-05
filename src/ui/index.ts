@@ -1,3 +1,5 @@
 export { BurgerMenu } from './BurgerMenu/BurgerMenu';
 export { Button } from './Button/Button';
 export { NavBar } from './NavBar/NavBar';
+export { Slider } from './Slider/Slider';
+export { SkeletonLoader } from './SkeletonLoader/SkeletonLoader';

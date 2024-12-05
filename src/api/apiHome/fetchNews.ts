@@ -1,0 +1,61 @@
+import { INewsArticleProps } from 'types';
+import { baseApi } from '@api/baseApi';
+import { NEWS_API_URL, API_KEY } from '@constants/fetchNews';
+
+type TNewsResponseProps = {
+	status: string;
+	articles: INewsArticleProps[];
+};
+
+export const fetchNews = async (
+	country: string = 'us',
+	category: string = 'business'
+): Promise<INewsArticleProps[]> => {
+	const url = `${NEWS_API_URL}?country=${country}&category=${category}&apiKey=${API_KEY}`;
+
+	try {
+		const response = await baseApi<TNewsResponseProps>(url);
+
+		if (response.status === 'ok') {
+			const articles = response.articles;
+
+			const results = await Promise.allSettled(
+				articles.map(article => {
+					return new Promise<INewsArticleProps>((resolve, reject) => {
+						if (
+							article.urlToImage &&
+							article.title &&
+							article.description &&
+							article.url
+						) {
+							resolve(article);
+						} else {
+							reject(
+								new Error(
+									`Missing required fields for article: ${article.title}`
+								)
+							);
+						}
+					});
+				})
+			);
+
+			const filteredArticles = results
+				.filter(result => result.status === 'fulfilled')
+				.map(
+					result => (result as PromiseFulfilledResult<INewsArticleProps>).value
+				);
+
+			return filteredArticles;
+		} else {
+			console.error(
+				'Error fetching news: Invalid response status',
+				response.status
+			);
+			return [];
+		}
+	} catch (error) {
+		console.error('Error fetching news:', error);
+		return [];
+	}
+};

@@ -1,25 +1,23 @@
-import { useEffect, useState } from 'react';
-import { fetchExchangeRates } from '@api/fetchExchangeRates';
-import { ICurrencyRate } from 'types';
+import { useFetch } from 'src/hooks/useFetch';
+import { fetchExchangeRates } from '@api/apiHome/fetchExchangeRates';
+import { ICurrencyRateProps } from 'types';
 import { getDate } from '@helpers/getDate';
+import { Button } from '@ui';
+import { updateRequest } from '@helpers/updateRequest';
 import iconBank from '@assets/icons/iconBank.svg';
 import styles from './ConverterCurrency.module.scss';
-import { Button } from '@ui';
 
 export const ConverterCurrency = () => {
-	const [currentDate, setCurrentDate] = useState('');
-	const [listCurrency, setListCurrency] = useState<ICurrencyRate[]>([]);
+	const {
+		data: listCurrency,
+		isLoading,
+		error,
+	} = useFetch<ICurrencyRateProps[]>({
+		asyncFunction: fetchExchangeRates,
+		intervalMs: updateRequest(1000, 60, 15),
+	});
 
-	useEffect(() => {
-		setCurrentDate(getDate());
-		const fetchData = async () => {
-			const result = await fetchExchangeRates();
-			setListCurrency(result);
-		};
-		fetchData();
-		const intervalId = setInterval(fetchData, 900000); // обновление каждые 15 минут
-		return () => clearInterval(intervalId);
-	}, []);
+	const currentDate = getDate();
 
 	return (
 		<section className={styles.section}>
@@ -28,13 +26,21 @@ export const ConverterCurrency = () => {
 					Exchange rate in internet bank
 				</h2>
 				<p className={styles.section__para}>Currency</p>
-				<ul className={styles.section__currencyList}>
-					{listCurrency.map(({ currency, rate }) => (
-						<li key={currency}>
-							{currency}:<span>{(1 / rate).toFixed(2)}</span>
-						</li>
-					))}
-				</ul>
+				{isLoading ? (
+					<p>Loading exchange rates...</p>
+				) : error ? (
+					<p className={styles.section__error}>
+						Error loading exchange rates: {error}
+					</p>
+				) : (
+					<ul className={styles.section__currencyList}>
+						{listCurrency?.map(({ currency, rate }) => (
+							<li key={currency}>
+								{currency}:<span>{(1 / rate).toFixed(2)}</span>
+							</li>
+						))}
+					</ul>
+				)}
 			</div>
 			<div className={styles.section__wrapperRight}>
 				<p className={styles.section__date}>

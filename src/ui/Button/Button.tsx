@@ -6,7 +6,7 @@ type TButtonProps = {
 	children?: ReactElement;
 	stylesProps?: string;
 	onClick?: () => void;
-	disabled: boolean;
+	disabled?: boolean;
 };
 
 export const Button: FC<TButtonProps> = ({
