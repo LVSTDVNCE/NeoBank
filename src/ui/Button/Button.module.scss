@@ -67,7 +67,7 @@
 	transition: color 0.3s;
 
 	&:hover {
-		color: #1c1c1e;
+		color: $primary-text-color;
 	}
 }
 
@@ -90,8 +90,8 @@
 	width: 64px;
 	height: 64px;
 	border-radius: 50%;
-	background-color: #003cff;
-	color: white;
+	background-color: $bg-color-button;
+	color: $button-text-color;
 
 	& img {
 		filter: brightness(0) saturate(100%) invert(99%) sepia(19%) saturate(159%)
@@ -99,9 +99,9 @@
 	}
 
 	&:disabled {
-		background-color: white;
+		background-color: $button-text-color;
 		cursor: not-allowed;
-		border: 1px solid #003cff;
+		border: 1px solid $bg-color-button;
 
 		& img {
 			filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(0%)

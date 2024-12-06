@@ -24,12 +24,10 @@ export const CurrentNews = () => {
 				We update the news feed every 15 minutes. You can learn more by clicking
 				on the news you are interested in.
 			</p>
-			{isLoading ? (
-				<p>Loading...</p>
-			) : error ? (
+			{error ? (
 				<p className={styles.news__error}>Failed to load news: {error}</p>
 			) : (
-				<Slider slides={news || []} />
+				<Slider slides={news || []} isLoading={isLoading} />
 			)}
 		</section>
 	);
