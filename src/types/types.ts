@@ -3,12 +3,6 @@ export interface ICurrencyRateProps {
 	rate: number;
 }
 
-export interface INavBarProps {
-	id: number;
-	link: string;
-	text: string;
-}
-
 export interface INewsArticleProps {
 	title: string;
 	description: string | null;

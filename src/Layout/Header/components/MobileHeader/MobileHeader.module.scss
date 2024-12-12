@@ -1,0 +1,40 @@
+@use '../../../../styles/variables.scss' as *;
+
+.header {
+	max-width: 1300px;
+	height: 64px;
+	margin: 0 auto;
+	padding: 0 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&__logo {
+		font-size: $fz-xm;
+		font-weight: $fw-bold;
+		line-height: $lh-112;
+		color: $logo-color;
+	}
+
+	.desktopHeader {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@media (max-width: 920px) {
+			display: none;
+		}
+	}
+
+	.mobileHeader {
+		display: none;
+
+		@media (max-width: 920px) {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}

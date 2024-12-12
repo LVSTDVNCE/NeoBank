@@ -1,11 +1,13 @@
 import { INewsArticleProps } from 'types';
 import { baseApi } from '@api/baseApi';
-import { NEWS_API_URL, API_KEY } from '@constants/fetchNews';
 
 type TNewsResponseProps = {
 	status: string;
 	articles: INewsArticleProps[];
 };
+
+const NEWS_API_URL = 'https://newsapi.org/v2/top-headlines';
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const fetchNews = async (
 	country: string = 'us',

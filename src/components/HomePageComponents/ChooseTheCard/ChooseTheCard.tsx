@@ -1,5 +1,5 @@
 import { Button } from '@ui';
-import { cards } from '@constants/SectionCards';
+import { CARDS } from './ChooseTheCard.const';
 import styles from './ChooseTheCard.module.scss';
 
 export const ChooseTheCard = () => {
@@ -12,7 +12,7 @@ export const ChooseTheCard = () => {
 				<Button text={'Choose the card'} />
 			</div>
 			<div className={styles.sectionCards__cards}>
-				{cards.map(card => (
+				{CARDS.map(card => (
 					<img key={card.id} src={card.src} alt={card.alt} />
 				))}
 			</div>

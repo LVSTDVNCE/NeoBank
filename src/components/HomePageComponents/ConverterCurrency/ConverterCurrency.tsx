@@ -1,10 +1,9 @@
 import { useFetch } from 'src/hooks/useFetch';
-import { fetchExchangeRates } from '@api/apiHome/fetchExchangeRates';
+import { apiHome } from '@api/apiHome';
 import { ICurrencyRateProps } from 'types';
-import { getDate } from '@helpers/getDate';
 import { Button } from '@ui';
 import { updateRequest } from '@helpers/updateRequest';
-import iconBank from '@assets/icons/iconBank.svg';
+import { CurrencyList, CurrencyStatus, CurrencyDate } from './components';
 import styles from './ConverterCurrency.module.scss';
 
 export const ConverterCurrency = () => {
@@ -13,11 +12,13 @@ export const ConverterCurrency = () => {
 		isLoading,
 		error,
 	} = useFetch<ICurrencyRateProps[]>({
-		asyncFunction: fetchExchangeRates,
+		asyncFunction: apiHome.fetchExchangeRates,
 		intervalMs: updateRequest(1000, 60, 15),
 	});
 
-	const currentDate = getDate();
+	const goToAllCourses = () => {
+		window.open('https://www.cbr.ru/currency_base/daily/', '_blank');
+	};
 
 	return (
 		<section className={styles.section}>
@@ -26,30 +27,15 @@ export const ConverterCurrency = () => {
 					Exchange rate in internet bank
 				</h2>
 				<p className={styles.section__para}>Currency</p>
-				{isLoading ? (
-					<p>Loading exchange rates...</p>
-				) : error ? (
-					<p className={styles.section__error}>
-						Error loading exchange rates: {error}
-					</p>
-				) : (
-					<ul className={styles.section__currencyList}>
-						{listCurrency?.map(({ currency, rate }) => (
-							<li key={currency}>
-								{currency}:<span>{(1 / rate).toFixed(2)}</span>
-							</li>
-						))}
-					</ul>
-				)}
+				<CurrencyStatus isLoading={isLoading} error={error} />
+				{!isLoading && !error && <CurrencyList listCurrency={listCurrency} />}
 			</div>
-			<div className={styles.section__wrapperRight}>
-				<p className={styles.section__date}>
-					Update every 15 minutes, MSC{' '}
-					<span className={styles.section__dateToday}>{currentDate}</span>
-				</p>
-				<img className={styles.section__img} src={iconBank} alt='Bank' />
-			</div>
-			<Button text='All courses' stylesProps='converter' />
+			<CurrencyDate />
+			<Button
+				text='All courses'
+				stylesProps='converter'
+				onClick={goToAllCourses}
+			/>
 		</section>
 	);
 };

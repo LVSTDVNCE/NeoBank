@@ -1,1 +1,1 @@
-export { Home } from './Home';
+export { HomeLazy as Home } from './HomeLazy';

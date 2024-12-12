@@ -20,8 +20,6 @@ export const useFetch = <T>({
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
-		let intervalId: NodeJS.Timeout | null = null;
-
 		const fetchData = async () => {
 			try {
 				setIsLoading(true);
@@ -40,14 +38,9 @@ export const useFetch = <T>({
 		}
 
 		if (intervalMs > 0) {
-			intervalId = setInterval(fetchData, intervalMs);
+			const intervalId = setInterval(fetchData, intervalMs);
+			return clearInterval(intervalId);
 		}
-
-		return () => {
-			if (intervalId) {
-				clearInterval(intervalId);
-			}
-		};
 	}, [asyncFunction, intervalMs, immediate]);
 
 	return { data, isLoading, error };

@@ -7,7 +7,7 @@ import {
 	CurrentNews,
 } from '@components/index';
 
-export const Home = () => {
+const Home = () => {
 	return (
 		<>
 			<ChooseTheCard />
@@ -19,3 +19,5 @@ export const Home = () => {
 		</>
 	);
 };
+
+export default Home;

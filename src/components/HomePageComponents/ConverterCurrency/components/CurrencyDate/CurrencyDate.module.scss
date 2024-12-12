@@ -1,0 +1,33 @@
+@use '../../../../../styles/variables.scss' as *;
+
+.section {
+	&__wrapperRight {
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		gap: 79px;
+	}
+
+	&__date {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-xl;
+		@media (max-width: 450px) {
+			font-size: $fz-s;
+		}
+	}
+
+	&__img {
+		width: 120px;
+		height: 113px;
+	}
+}
+
+@media (max-width: 854px) {
+	.section {
+		&__wrapperRight {
+			align-items: center;
+			gap: 0;
+		}
+	}
+}

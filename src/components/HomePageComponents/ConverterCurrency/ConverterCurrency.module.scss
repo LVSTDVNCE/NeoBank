@@ -46,65 +46,11 @@
 			margin-bottom: 18px;
 		}
 	}
-
-	&__currencyList {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 32px;
-		padding: 0;
-		list-style-type: none;
-		@media (max-width: 450px) {
-			font-size: $fz-s;
-			gap: 24px;
-		}
-	}
-
-	&__currencyList li {
-		align-self: center;
-		justify-self: center;
-		font-weight: $fw-bold;
-		font-size: 20px;
-		color: $secondary-text-color;
-		@media (max-width: 450px) {
-			font-size: $fz-s;
-		}
-	}
-
-	&__currencyList span {
-		color: $primary-text-color;
-		margin-left: 20px;
-	}
-
-	&__wrapperRight {
-		display: flex;
-		flex-direction: column;
-		align-items: end;
-		gap: 79px;
-	}
-
-	&__date {
-		font-weight: $fw-medium;
-		font-size: $fz-m;
-		line-height: $lh-xl;
-		@media (max-width: 450px) {
-			font-size: $fz-s;
-		}
-	}
-
-	&__img {
-		width: 120px;
-		height: 113px;
-	}
 }
 
 @media (max-width: 854px) {
 	.section {
 		justify-content: center;
 		padding-bottom: 64px;
-
-		&__wrapperRight {
-			align-items: center;
-			gap: 0;
-		}
 	}
 }

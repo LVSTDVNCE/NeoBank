@@ -1,15 +1,15 @@
 import { NavBar } from '@ui';
-import { footerNavItems } from '@constants/footerNavItems';
+import { FOOTER_NAV_ITEMS } from './Footer.const';
+import { Link } from 'react-router-dom';
 import footerLogo from '@assets/images/png/footerLogo.png';
 import styles from './Footer.module.scss';
-import { Link } from 'react-router-dom';
+
+const address = [
+	{ id: 1, href: 'tel:+7(495)9842513', text: '+7 (495) 984 25 13' },
+	{ id: 2, href: 'mailto:info@neoflex.ru', text: 'info@neoflex.ru' },
+];
 
 export const Footer = () => {
-	const address = [
-		{ id: 1, href: 'tel:+7(495)9842513', text: '+7 (495) 984 25 13' },
-		{ id: 2, href: 'mailto:info@neoflex.ru', text: 'info@neoflex.ru' },
-	];
-
 	return (
 		<footer className={styles.footer}>
 			<section className={styles.footer__section}>
@@ -29,7 +29,7 @@ export const Footer = () => {
 						))}
 					</address>
 				</div>
-				<NavBar NavBarItems={footerNavItems} />
+				<NavBar NavBarItems={FOOTER_NAV_ITEMS} />
 				<p className={styles.footer__para}>
 					We use cookies to personalize our services and improve the user
 					experience of our website. Cookies are small files containing

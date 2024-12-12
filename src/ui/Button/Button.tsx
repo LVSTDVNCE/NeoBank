@@ -1,9 +1,9 @@
-import { ReactElement, FC } from 'react';
+import { ReactNode, FC } from 'react';
 import styles from './Button.module.scss';
 
 type TButtonProps = {
 	text?: string;
-	children?: ReactElement;
+	children?: ReactNode;
 	stylesProps?: string;
 	onClick?: () => void;
 	disabled?: boolean;

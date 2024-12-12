@@ -1,18 +1,22 @@
 import { useFetch } from 'src/hooks/useFetch';
-import { Slider } from '@ui';
-import { fetchNews } from '@api/apiHome/fetchNews';
+import { ErrorMessage, Slider } from '@ui';
+import { apiHome } from '@api/apiHome';
 import { updateRequest } from '@helpers/updateRequest';
 import { INewsArticleProps } from 'types';
 import styles from './CurrentNews.module.scss';
 
 export const CurrentNews = () => {
+	const MS = 1000,
+		SECONDS = 60,
+		MINUTES = 15;
+
 	const {
 		data: news,
 		isLoading,
 		error,
 	} = useFetch<INewsArticleProps[]>({
-		asyncFunction: fetchNews,
-		intervalMs: updateRequest(1000, 60, 15),
+		asyncFunction: apiHome.fetchNews,
+		intervalMs: updateRequest(MS, SECONDS, MINUTES),
 	});
 
 	return (
@@ -25,7 +29,7 @@ export const CurrentNews = () => {
 				on the news you are interested in.
 			</p>
 			{error ? (
-				<p className={styles.news__error}>Failed to load news: {error}</p>
+				<ErrorMessage text='Failed to load news:' error={error} />
 			) : (
 				<Slider slides={news || []} isLoading={isLoading} />
 			)}

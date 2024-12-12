@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import { INavBar } from 'types';
 import styles from './NavBar.module.scss';
 
 type TNavBarProps = {
-	NavBarItems: INavBar[];
+	id: number;
+	link: string;
+	text: string;
 };
 
-export const NavBar = ({ NavBarItems }: TNavBarProps) => {
+export const NavBar = ({ NavBarItems }: { NavBarItems: TNavBarProps[] }) => {
 	return (
 		<nav className={styles.navigation}>
 			<ul className={styles.navigation__list}>

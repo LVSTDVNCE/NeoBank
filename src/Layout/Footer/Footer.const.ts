@@ -1,4 +1,4 @@
-export const footerNavItems = [
+export const FOOTER_NAV_ITEMS = [
 	{ id: 1, link: '/', text: 'About bank' },
 	{ id: 2, link: '/', text: 'Ask a Question' },
 	{ id: 3, link: '/', text: 'Quality of service' },

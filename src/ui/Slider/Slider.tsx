@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
-import { Button, SkeletonLoader } from '@ui';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { INewsArticleProps } from 'types';
+import { ButtonsGroup, SliderCard, SliderSkeleton } from './components';
 import styles from './Slider.module.scss';
 import left from '@assets/icons/slideLeft.png';
 import right from '@assets/icons/slideRight.png';
@@ -16,17 +16,17 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 	const touchStartX = useRef<number | null>(null);
 	const touchEndX = useRef<number | null>(null);
 
-	const nextSlide = () => {
+	const nextSlide = useCallback(() => {
 		if (currentSlide < slides.length - 1) {
 			setCurrentSlide(prevSlide => prevSlide + 1);
 		}
-	};
+	}, [currentSlide, slides.length]);
 
-	const prevSlide = () => {
+	const prevSlide = useCallback(() => {
 		if (currentSlide > 0) {
 			setCurrentSlide(prevSlide => prevSlide - 1);
 		}
-	};
+	}, [currentSlide]);
 
 	const handleTouchStart = (e: React.TouchEvent) => {
 		touchStartX.current = e.touches[0].clientX;
@@ -80,20 +80,25 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 		};
 	}, []);
 
-	const sliderButtonsConfig = [
-		{
-			id: 1,
-			onClick: prevSlide,
-			disabled: currentSlide === 0,
-			icon: left,
-		},
-		{
-			id: 2,
-			onClick: nextSlide,
-			disabled: currentSlide === slides.length - 1,
-			icon: right,
-		},
-	];
+	const COUNT_SKELETON_CARDS = [1, 2, 3, 4];
+
+	const SLIDER_BUTTONS_CONFIG = useMemo(
+		() => [
+			{
+				id: 1,
+				onClick: prevSlide,
+				disabled: currentSlide === 0,
+				icon: left,
+			},
+			{
+				id: 2,
+				onClick: nextSlide,
+				disabled: currentSlide === slides.length - 1,
+				icon: right,
+			},
+		],
+		[currentSlide, nextSlide, prevSlide, slides.length]
+	);
 
 	return (
 		<section
@@ -110,44 +115,13 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 					}}
 				>
 					{isLoading
-						? [1, 2, 3, 4].map(slide => (
-								<article className={styles.slider__slide} key={slide}>
-									<SkeletonLoader width='256px' height='120px' />
-									<SkeletonLoader width='256px' height='110px' />
-									<SkeletonLoader width='256px' height='96px' />
-								</article>
-						  ))
-						: slides.map((slide, index) => (
-								<article className={styles.slider__slide} key={index}>
-									<a
-										href={slide.url}
-										target='_blank'
-										className={styles.slider__link}
-									>
-										<img
-											src={slide.urlToImage || 'placeholder.png'}
-											alt={slide.title}
-											className={styles.slider__img}
-										/>
-										<h4 className={styles.slider__heading}>{slide.title}</h4>
-										<p className={styles.slider__para}>{slide.description}</p>
-									</a>
-								</article>
+						? COUNT_SKELETON_CARDS.map(slide => <SliderSkeleton key={slide} />)
+						: slides.map(slide => (
+								<SliderCard slide={slide} key={slide.title} />
 						  ))}
 				</div>
 			</div>
-			<div className={styles.slider__buttonWrapper}>
-				{sliderButtonsConfig.map(button => (
-					<Button
-						key={button.id}
-						stylesProps='newsButton'
-						onClick={button.onClick}
-						disabled={button.disabled}
-					>
-						<img src={button.icon} alt='arrow-icon' />
-					</Button>
-				))}
-			</div>
+			<ButtonsGroup config={SLIDER_BUTTONS_CONFIG} />
 		</section>
 	);
 };
