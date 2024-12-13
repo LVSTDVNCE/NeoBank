@@ -5,3 +5,4 @@ export { Slider } from './Slider/Slider';
 export { SkeletonLoader } from './SkeletonLoader/SkeletonLoader';
 export { Loader } from 'src/ui/Loader/Loader';
 export { ErrorMessage } from './ErrorMessage/ErrorMessage';
+export { BaseCard } from './BaseCard/BaseCard';

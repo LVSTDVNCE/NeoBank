@@ -1,9 +1,8 @@
 @use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
 
 .sectionCards {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
+	@include flex-between-wrap();
 	margin-bottom: 112px;
 	gap: 20px;
 
@@ -23,10 +22,8 @@
 
 	&__cards {
 		max-width: 518px;
-		display: flex;
-		justify-content: space-between;
+		@include flex-between-wrap();
 		row-gap: 16px;
-		flex-wrap: wrap;
 
 		& img {
 			width: 254px;

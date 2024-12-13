@@ -1,9 +1,8 @@
 @use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
 
 .sectionFeatures {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	@include flex-center-between();
 	flex-wrap: wrap;
 	margin-bottom: 48px;
 	font-family: $ff-secondary;

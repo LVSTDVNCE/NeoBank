@@ -1,10 +1,9 @@
 @use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
 
 .sectionSubscribe {
-	display: flex;
+	@include flex-center-center();
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	padding: 20px;
 	margin-bottom: 40px;
 
@@ -20,14 +19,13 @@
 	}
 
 	&__heading {
-		display: flex;
-		flex-direction: column;
-		text-align: center;
+		@include flex-center-center();
 		font-weight: $fw-bold;
 		font-size: $fz-l;
 		line-height: $lh-120;
 		color: $primary-text-color;
 		margin-bottom: 27px;
+		text-align: center;
 		@media (max-width: 600px) {
 			font-size: $fz-xm;
 			margin-bottom: 17px;

@@ -1,18 +1,21 @@
 @use './../../../styles/variables.scss' as *;
+@use './../../../styles/mixins.scss' as *;
+
+@mixin fw-lh-color() {
+	font-weight: $fw-medium;
+	line-height: $lh-xl;
+	color: $primary-text-color;
+}
 
 .sectionWorld {
-	display: flex;
+	@include flex-center-center();
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	margin-bottom: 48px;
 	text-align: center;
 
 	&__heading {
-		font-weight: $fw-medium;
+		@include fw-lh-color();
 		font-size: $fz-l;
-		line-height: $lh-xl;
-		color: $primary-text-color;
 		margin-bottom: 8px;
 		@media (max-width: 600px) {
 			font-size: $fz-xm;
@@ -21,10 +24,8 @@
 	}
 
 	&__para {
-		font-weight: $fw-medium;
+		@include fw-lh-color();
 		font-size: $fz-m;
-		line-height: $lh-xl;
-		color: $primary-text-color;
 		margin-bottom: 48px;
 		@media (max-width: 600px) {
 			font-size: $fz-s;
