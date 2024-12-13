@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import footerLogo from '@assets/images/png/footerLogo.png';
 import styles from './Footer.module.scss';
 
-const address = [
+const ADDRESS = [
 	{ id: 1, href: 'tel:+7(495)9842513', text: '+7 (495) 984 25 13' },
 	{ id: 2, href: 'mailto:info@neoflex.ru', text: 'info@neoflex.ru' },
 ];
@@ -22,7 +22,7 @@ export const Footer = () => {
 						/>
 					</Link>
 					<address className={styles.footer__address}>
-						{address.map(item => (
+						{ADDRESS.map(item => (
 							<a key={item.id} href={item.href} className={styles.footer__link}>
 								{item.text}
 							</a>
