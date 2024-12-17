@@ -109,3 +109,26 @@
 		}
 	}
 }
+
+// button for PageNotFound
+
+.buttonNotFound {
+	width: 192px;
+	background-color: $bg-color-button;
+	border-radius: 8px;
+	padding: 11px 64px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:hover {
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}

@@ -26,7 +26,8 @@
 			"@pages/*": ["src/pages/*"],
 			"@styles/*": ["src/styles/*"],
 			"types": ["src/types/index.ts"],
-			"@constants/*": ["src/constants/*"]
+			"@constants/*": ["src/constants/*"],
+			"@routes": ["src/routes/index.ts"]
 		},
 
 		/* Linting */

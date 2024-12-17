@@ -1,0 +1,67 @@
+@use '../../../styles/variables.scss' as *;
+
+.AboutPlatinum {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 122px;
+	row-gap: 48px;
+	max-width: 1300px;
+	min-height: 390px;
+	margin-top: -111px;
+	margin-bottom: 48px;
+	padding: 48px 32px;
+	border-radius: 28px;
+	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+	background: rgb(203, 213, 224);
+	background: linear-gradient(
+		180deg,
+		rgba(203, 213, 224, 0.78) 0%,
+		rgba(254, 235, 200, 0.7) 100%
+	);
+
+	@media (max-width: 1209px) {
+		justify-content: center;
+	}
+	@media (max-width: 600px) {
+		margin-top: -51px;
+	}
+
+	&__wrapper {
+		max-width: 649px;
+
+		p {
+			display: inline-block;
+			max-width: 515px;
+		}
+	}
+
+	&__heading {
+		margin-bottom: 48px;
+		font-weight: $fw-bold;
+		font-size: $fz-xl;
+		color: $button-text-color;
+		text-align: center;
+
+		@media (max-width: 724px) {
+			font-size: $fz-l;
+			margin-bottom: 32px;
+		}
+	}
+
+	&__para {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-112;
+		color: $aboutPlatinum-para-color;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
+	}
+
+	&__img {
+		width: 380px;
+		max-height: 226px;
+		object-fit: cover;
+	}
+}

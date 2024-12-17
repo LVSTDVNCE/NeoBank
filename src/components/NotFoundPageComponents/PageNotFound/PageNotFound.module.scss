@@ -1,0 +1,47 @@
+@use '../../../styles/variables.scss' as *;
+
+@mixin fz-lh-color() {
+	font-size: $fz-l;
+	line-height: $lh-112;
+	color: $primary-text-color;
+}
+
+.NotFound {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: -107px;
+	margin-bottom: 86px;
+
+	@media (max-width: 1047px) {
+		justify-content: center;
+	}
+
+	@media (max-width: 600px) {
+		margin-top: -47px;
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+
+	&__heading {
+		@include fz-lh-color();
+		font-weight: $fw-bold;
+	}
+
+	&__title {
+		@include fz-lh-color();
+		font-weight: $fw-medium;
+	}
+
+	&__para {
+		font-size: $fz-m;
+		line-height: $lh-112;
+		font-weight: $fw-medium;
+		color: $secondary-text-color;
+	}
+}

@@ -1,1 +1,1 @@
-export { HomeLazy as Home } from './HomeLazy';
+export { HomeLazy as Home } from './Home.async';
