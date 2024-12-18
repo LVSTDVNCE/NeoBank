@@ -1,12 +1,12 @@
 import { ReactNode, useState, FC } from 'react';
 import styles from './Tooltip.module.scss';
 
-type TooltipProps = {
+type TTooltipProps = {
 	text: string;
 	children: ReactNode;
 };
 
-export const Tooltip: FC<TooltipProps> = ({ text, children }) => {
+export const Tooltip: FC<TTooltipProps> = ({ text, children }) => {
 	const [visible, setVisible] = useState(false);
 
 	return (

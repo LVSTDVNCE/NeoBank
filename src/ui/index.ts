@@ -7,3 +7,5 @@ export { Loader } from 'src/ui/Loader/Loader';
 export { ErrorMessage } from './ErrorMessage/ErrorMessage';
 export { BaseCard } from './BaseCard/BaseCard';
 export { Tooltip } from './Tooltip/Tooltip';
+export { Tabs } from './Tabs/Tabs';
+export { Divider } from './Divider/Divider';

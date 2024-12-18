@@ -132,3 +132,22 @@
 		font-size: $fz-s;
 	}
 }
+
+// button for Tabs
+
+.TabBtn {
+	font-size: $fz-m;
+	color: $tabs-text-color;
+	font-weight: $fw-medium;
+	padding-bottom: 12px;
+	margin-left: 32px;
+}
+
+.activeTabBtn {
+	font-size: $fz-m;
+	color: $tabs-text-color;
+	font-weight: $fw-medium;
+	padding-bottom: 12px;
+	margin-left: 32px;
+	border-bottom: 2px solid $tabs-text-color;
+}

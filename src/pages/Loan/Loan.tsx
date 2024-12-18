@@ -1,9 +1,10 @@
-import { AboutPlatinum } from '@components/LoanPageComponents';
+import { AboutPlatinum, LoanTabs } from '@components/LoanPageComponents';
 
 const Loan = () => {
 	return (
 		<>
 			<AboutPlatinum />
+			<LoanTabs />
 		</>
 	);
 };
