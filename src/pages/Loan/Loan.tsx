@@ -1,10 +1,15 @@
-import { AboutPlatinum, LoanTabs } from '@components/LoanPageComponents';
+import {
+	AboutPlatinum,
+	HowGetCard,
+	LoanTabs,
+} from '@components/LoanPageComponents';
 
 const Loan = () => {
 	return (
 		<>
 			<AboutPlatinum />
 			<LoanTabs />
+			<HowGetCard />
 		</>
 	);
 };

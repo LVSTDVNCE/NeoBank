@@ -151,3 +151,18 @@
 	margin-left: 32px;
 	border-bottom: 2px solid $tabs-text-color;
 }
+
+// button Accordion
+
+.accordionButton {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 32px;
+	border: 1px solid $accordion-border-color;
+	background-color: $bg-color-page;
+	color: $primary-text-color;
+	font-weight: $fw-medium;
+	font-size: $fz-m;
+	line-height: $lh-147;
+}

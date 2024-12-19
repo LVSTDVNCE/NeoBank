@@ -1,6 +1,6 @@
 @use '../../../../../styles/variables.scss' as *;
 
-.AboutCard {
+.Cashback {
 	width: 100%;
 	margin-top: 48px;
 	margin-bottom: 90px;
@@ -12,6 +12,7 @@
 .card {
 	display: flex;
 	flex-direction: column;
+	gap: 22px;
 	min-width: 400px;
 	padding: 32px;
 	border-radius: 28px;
@@ -22,14 +23,7 @@
 		min-width: 300px;
 	}
 
-	&__img {
-		width: 40px;
-		height: 40px;
-		margin-bottom: 24px;
-	}
-
 	&__title {
-		margin-bottom: 16px;
 		font-weight: $fw-bold;
 		line-height: $lh-147;
 		font-size: $fz-l;

@@ -9,3 +9,4 @@ export { BaseCard } from './BaseCard/BaseCard';
 export { Tooltip } from './Tooltip/Tooltip';
 export { Tabs } from './Tabs/Tabs';
 export { Divider } from './Divider/Divider';
+export { Accordion } from './Accordion/Accordion';

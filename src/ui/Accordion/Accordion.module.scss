@@ -1,0 +1,31 @@
+@use '../../styles/variables.scss' as *;
+
+.accordion {
+	border-radius: 4px;
+}
+
+.accordionItem {
+	&:first-of-type {
+		border-top: none;
+	}
+}
+
+.accordionContent {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: padding 0.15s ease-out;
+	padding: 0 1rem;
+}
+
+.accordionContentOpen {
+	max-height: 200px;
+	padding: 32px;
+	opacity: 1;
+	transition: opacity 0.3s ease-out, padding 0.3s ease-out;
+	border: 1px solid $accordion-border-color;
+	border-top: none;
+	font-size: $fz-m;
+	line-height: $lh-147;
+	color: $tabs-text-color;
+}

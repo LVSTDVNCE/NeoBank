@@ -1,0 +1,14 @@
+@use '../../../../../styles/variables.scss' as *;
+
+.faq {
+	margin-top: 32px;
+	margin-bottom: 48px;
+
+	&__heading {
+		margin-top: 32px;
+		margin-bottom: 32px;
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		line-height: $lh-147;
+	}
+}

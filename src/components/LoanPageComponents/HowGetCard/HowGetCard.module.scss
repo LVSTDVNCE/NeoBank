@@ -1,0 +1,62 @@
+@use '../../../styles/variables.scss' as *;
+
+.howTo {
+	margin-bottom: 44px;
+	text-align: center;
+
+	&__heading {
+		font-size: $fz-l;
+		font-weight: $fw-bold;
+		line-height: $lh-147;
+		margin-bottom: 14px;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+		}
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 106px;
+
+		@media (max-width: 1250px) {
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		max-width: 334px;
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 36px;
+		max-width: 334px;
+		height: 48px;
+		margin-bottom: 20px;
+	}
+
+	&__step {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background-color: $how-to-step-color;
+		font-size: $fz-over-m;
+		font-weight: $fw-bold;
+		line-height: $lh-147;
+	}
+
+	&__para {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-147;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
+	}
+}
