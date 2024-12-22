@@ -166,3 +166,28 @@
 	font-size: $fz-m;
 	line-height: $lh-147;
 }
+
+//formButton
+
+.formButton {
+	background-color: $bg-color-button;
+	border-radius: 8px;
+	padding: 16px 30px 12px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+	position: absolute;
+	bottom: 32px;
+	right: 32px;
+
+	&:hover {
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}

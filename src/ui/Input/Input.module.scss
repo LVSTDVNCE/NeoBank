@@ -1,0 +1,25 @@
+@use '../../styles/variables.scss' as *;
+
+.inputWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.input {
+	width: 297px;
+	padding: 13px 0 13px 16px;
+	border: 2px solid $loan-input-border-color;
+	border-radius: 6px;
+	background-color: $loan-input-color;
+
+	&::placeholder {
+		font-size: $fz-s;
+		color: $loan-input-placeholder-color;
+	}
+
+	&:hover,
+	&:focus {
+		border: 2px solid $loan-input-border-hover-color;
+	}
+}

@@ -9,3 +9,15 @@ export interface INewsArticleProps {
 	url: string;
 	urlToImage: string | null;
 }
+
+export interface IPrescoringFormProps {
+	amount: number;
+	term: number;
+	firstName: string;
+	lastName: string;
+	middleName: string | null;
+	email: string;
+	birthdate: string | Date;
+	passportSeries: string;
+	passportNumber: string;
+}

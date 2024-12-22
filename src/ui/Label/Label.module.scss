@@ -1,0 +1,11 @@
+@use '../../styles/variables.scss' as *;
+
+.label {
+	font-weight: $fw-medium;
+	font-size: $fz-m;
+	color: $primary-text-color;
+
+	span {
+		color: red;
+	}
+}

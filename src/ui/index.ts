@@ -10,3 +10,7 @@ export { Tooltip } from './Tooltip/Tooltip';
 export { Tabs } from './Tabs/Tabs';
 export { Divider } from './Divider/Divider';
 export { Accordion } from './Accordion/Accordion';
+export { Input } from './Input/Input';
+export { Select } from './Select/Select';
+export { Label } from './Label/Label';
+export { Form } from './Form/Form';

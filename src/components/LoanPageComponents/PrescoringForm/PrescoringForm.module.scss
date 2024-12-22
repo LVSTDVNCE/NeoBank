@@ -1,0 +1,103 @@
+@use '../../../styles/variables.scss' as *;
+
+.form {
+	&__topWrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 82px;
+	}
+
+	&__topWrapperLeft {
+		width: 650px;
+		border-right: 1px dashed $loan-input-border-color;
+	}
+
+	&__chosenHeading {
+		font-weight: $fw-bold;
+		font-size: $fz-over-m;
+		margin-bottom: 16px;
+	}
+
+	&__chosenValue {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		margin-bottom: 10px;
+	}
+
+	&__AmountWrapper {
+		max-width: 568px;
+		padding: 24px;
+		border: 1px solid $loan-input-border-hover-color;
+		border-radius: 10px;
+	}
+
+	&__AmountValue {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+	}
+
+	&__AmountMinMaxWrapper {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 9px;
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		color: $loan-input-placeholder-color;
+	}
+
+	&__AmountInput {
+		-webkit-appearance: none;
+		width: 100%;
+		max-width: 520px;
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background-color: $loan-input-border-hover-color;
+			cursor: pointer;
+			margin-top: -11px;
+		}
+
+		&::-webkit-slider-runnable-track {
+			height: 2px;
+			background-color: $loan-input-border-hover-color;
+		}
+	}
+
+	&__CustomizeWrapper {
+		max-width: 570px;
+		margin-bottom: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__heading {
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+	}
+
+	&__step {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+	}
+
+	&__headingContacts {
+		margin-top: 32px;
+		font-weight: $fw-bold;
+		font-size: $fz-over-m;
+	}
+
+	&__contacts {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 8px;
+		row-gap: 16px;
+		margin-top: 26px;
+		margin-bottom: 24px;
+	}
+}

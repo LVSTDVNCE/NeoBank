@@ -2,6 +2,7 @@ import {
 	AboutPlatinum,
 	HowGetCard,
 	LoanTabs,
+	PrescoringForm,
 } from '@components/LoanPageComponents';
 
 const Loan = () => {
@@ -10,6 +11,7 @@ const Loan = () => {
 			<AboutPlatinum />
 			<LoanTabs />
 			<HowGetCard />
+			<PrescoringForm />
 		</>
 	);
 };
