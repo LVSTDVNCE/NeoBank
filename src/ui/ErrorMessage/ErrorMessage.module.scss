@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as *;
+
 .error {
 	color: #d9534f;
 	background-color: #f2dede;
@@ -14,4 +16,11 @@
 		content: '⚠️';
 		margin-right: 8px;
 	}
+}
+
+.loan-form-input {
+	font-size: $fz-m;
+	font-weight: $fw-medium;
+	color: $loan-input-error-color;
+	margin-top: -8px;
 }

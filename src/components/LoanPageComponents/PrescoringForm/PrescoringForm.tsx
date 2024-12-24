@@ -1,10 +1,12 @@
 import { useForm, Controller } from 'react-hook-form';
-import { inputFields } from './PrescoringForm.const';
+import { useState } from 'react';
+import { INPUT_CONFIG } from './PrescoringForm.const';
 import { IPrescoringFormProps } from 'types';
 import { Button, Divider, Form, Input, Label, Select } from '@ui';
 import styles from './PrescoringForm.module.scss';
 
 export const PrescoringForm = () => {
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const {
 		control,
 		handleSubmit,
@@ -76,7 +78,7 @@ export const PrescoringForm = () => {
 			<h4 className={styles.form__headingContacts}>Contact information</h4>
 
 			<div className={styles.form__contacts}>
-				{inputFields.map(({ id, label, type, rules, placeholder, star }) => (
+				{INPUT_CONFIG.map(({ id, label, type, rules, placeholder, star }) => (
 					<Input
 						key={id}
 						id={id}
@@ -87,6 +89,7 @@ export const PrescoringForm = () => {
 						errors={errors}
 						placeholder={placeholder}
 						star={star}
+						isSubmitted={isSubmitted}
 					/>
 				))}
 
@@ -106,7 +109,11 @@ export const PrescoringForm = () => {
 				/>
 			</div>
 
-			<Button stylesProps='formButton' text='Continue' />
+			<Button
+				stylesProps='formButton'
+				text='Continue'
+				onClick={() => setIsSubmitted(true)}
+			/>
 		</Form>
 	);
 };

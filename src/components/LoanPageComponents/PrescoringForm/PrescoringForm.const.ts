@@ -1,23 +1,22 @@
-export const inputFields = [
+export const INPUT_CONFIG = [
 	{
 		id: 'lastName',
 		label: 'Your last name',
 		star: '*',
 		placeholder: 'For Example Doe',
-		rules: { required: 'Укажите фамилию' },
+		rules: { required: 'Enter your last name' },
 	},
 	{
 		id: 'firstName',
 		label: 'Your first name',
 		star: '*',
 		placeholder: 'For Example Jhon',
-		rules: { required: 'Укажите имя' },
+		rules: { required: 'Enter your first name' },
 	},
 	{
 		id: 'middleName',
 		label: 'Your patronymic',
 		placeholder: 'For Example Victorovich',
-		rules: { required: 'Укажите отчество' },
 	},
 	{
 		id: 'email',
@@ -26,10 +25,10 @@ export const inputFields = [
 		placeholder: 'test@gmail.com',
 		type: 'email',
 		rules: {
-			required: 'Укажите почту',
+			required: 'Incorrect email address',
 			pattern: {
 				value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-				message: 'Некорректный формат почты',
+				message: 'Incorrect email address',
 			},
 		},
 	},
@@ -39,7 +38,7 @@ export const inputFields = [
 		star: '*',
 		placeholder: 'Select Date and Time',
 		type: 'date',
-		rules: { required: 'Укажите дату рождения' },
+		rules: { required: 'Incorrect date of birth' },
 	},
 	{
 		id: 'passportSeries',
@@ -47,10 +46,10 @@ export const inputFields = [
 		star: '*',
 		placeholder: '0000',
 		rules: {
-			required: 'Укажите серию паспорта',
+			required: 'The series must be 4 digits',
 			pattern: {
 				value: /^[0-9]{4}$/,
-				message: 'Серия паспорта должна состоять из 4 цифр',
+				message: 'The series must be 4 digits',
 			},
 		},
 	},
@@ -60,10 +59,10 @@ export const inputFields = [
 		star: '*',
 		placeholder: '000000',
 		rules: {
-			required: 'Укажите номер паспорта',
+			required: 'The series must be 6 digits',
 			pattern: {
 				value: /^[0-9]{6}$/,
-				message: 'Номер паспорта должен состоять из 6 цифр',
+				message: 'The series must be 6 digits',
 			},
 		},
 	},

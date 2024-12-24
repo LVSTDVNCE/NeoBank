@@ -4,14 +4,21 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	position: relative;
 }
 
 .input {
+	outline: none;
+	appearance: none;
 	width: 297px;
+	height: 40px;
 	padding: 13px 0 13px 16px;
+	padding-right: 36px;
 	border: 2px solid $loan-input-border-color;
 	border-radius: 6px;
 	background-color: $loan-input-color;
+	font-size: $fz-s;
+	transition: border-color 0.3s, background-color 0.3s;
 
 	&::placeholder {
 		font-size: $fz-s;
@@ -20,6 +27,33 @@
 
 	&:hover,
 	&:focus {
-		border: 2px solid $loan-input-border-hover-color;
+		border-color: $loan-input-border-hover-color;
 	}
+
+	&:valid {
+		box-shadow: none;
+		outline: none;
+		background-color: $loan-input-color;
+	}
+
+	&:invalid {
+		box-shadow: none;
+		outline: none;
+	}
+}
+
+.error {
+	border-color: $loan-input-error-color;
+}
+
+.iconMessage {
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: 45px;
+	right: 12px;
+	transform: translateY(-50%);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
