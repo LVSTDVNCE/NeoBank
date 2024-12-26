@@ -28,4 +28,8 @@
 	font-size: $fz-m;
 	line-height: $lh-147;
 	color: $tabs-text-color;
+
+	@media (max-width: 600px) {
+		font-size: $fz-s;
+	}
 }

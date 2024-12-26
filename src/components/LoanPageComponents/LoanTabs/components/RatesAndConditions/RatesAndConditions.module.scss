@@ -12,20 +12,40 @@
 .list {
 	&__wrapper {
 		display: flex;
+		gap: 69px;
+
+		@media (max-width: 600px) {
+			gap: 0px;
+		}
 	}
 	&__para {
 		max-width: 617px;
-		display: inline-block;
+		display: block;
 		font-weight: $fw-medium;
 		font-size: $fz-m;
 		color: $secondary-text-color;
+
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
+
+		@media (max-width: 400px) {
+			font-size: $fz-xs;
+		}
 	}
+
 	&__para:first-child {
-		width: 257px;
+		min-width: 257px;
 		margin-right: 69px;
 		color: black;
 		vertical-align: top;
+
+		@media (max-width: 600px) {
+			min-width: 150px;
+			max-width: 150px;
+		}
 	}
+
 	&__para:nth-child(2) {
 		display: flex;
 		flex-direction: column;

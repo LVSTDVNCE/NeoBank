@@ -1,7 +1,7 @@
 import styles from './Label.module.scss';
 
 type TLabelProps = {
-	text: string;
+	text?: string;
 	htmlFor: string;
 	star?: string;
 };

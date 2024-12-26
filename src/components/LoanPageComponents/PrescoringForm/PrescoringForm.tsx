@@ -54,6 +54,7 @@ export const PrescoringForm = () => {
 										type='range'
 										min='15000'
 										max='600000'
+										step='5000'
 										{...field}
 									/>
 									<div className={styles.form__AmountMinMaxWrapper}>

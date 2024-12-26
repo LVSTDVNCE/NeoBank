@@ -1,0 +1,6 @@
+.ButtonWrapper {
+	@media (max-width: 510px) {
+		display: flex;
+		justify-content: space-between;
+	}
+}

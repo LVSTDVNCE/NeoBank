@@ -141,6 +141,15 @@
 	font-weight: $fw-medium;
 	padding-bottom: 12px;
 	margin-left: 32px;
+
+	@media (max-width: 510px) {
+		margin-left: 0px;
+		font-size: $fz-s;
+	}
+
+	@media (max-width: 400px) {
+		font-size: $fz-xs;
+	}
 }
 
 .activeTabBtn {
@@ -150,6 +159,15 @@
 	padding-bottom: 12px;
 	margin-left: 32px;
 	border-bottom: 2px solid $tabs-text-color;
+
+	@media (max-width: 510px) {
+		margin-left: 0px;
+		font-size: $fz-s;
+	}
+
+	@media (max-width: 400px) {
+		font-size: $fz-xs;
+	}
 }
 
 // button Accordion
@@ -165,6 +183,11 @@
 	font-weight: $fw-medium;
 	font-size: $fz-m;
 	line-height: $lh-147;
+	text-align: start;
+
+	@media (max-width: 650px) {
+		font-size: $fz-s;
+	}
 }
 
 //formButton

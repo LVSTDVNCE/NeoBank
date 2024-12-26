@@ -4,14 +4,24 @@ import {
 	LoanTabs,
 	PrescoringForm,
 } from '@components/LoanPageComponents';
+import { useRef } from 'react';
 
 const Loan = () => {
+	const formRef = useRef<HTMLDivElement>(null);
+
+	const goToForm = () => {
+		if (formRef.current) {
+			formRef.current.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
 	return (
 		<>
-			<AboutPlatinum />
+			<AboutPlatinum goToForm={goToForm} />
 			<LoanTabs />
 			<HowGetCard />
-			<PrescoringForm />
+			<div ref={formRef}>
+				<PrescoringForm />
+			</div>
 		</>
 	);
 };

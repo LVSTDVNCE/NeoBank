@@ -10,5 +10,9 @@
 		font-weight: $fw-bold;
 		font-size: $fz-l;
 		line-height: $lh-147;
+
+		@media (max-width: 600px) {
+			font-size: $fz-over-m;
+		}
 	}
 }

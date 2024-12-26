@@ -1,8 +1,8 @@
-import styles from './Subscribe.module.scss';
 import { Link } from 'react-router-dom';
+import { Button } from '@ui';
 import email from '@assets/icons/email.svg';
 import sendBtn from '@assets/icons/sendBtn.svg';
-import { Button } from '@ui';
+import styles from './Subscribe.module.scss';
 
 export const Subscribe = () => {
 	return (

@@ -3,7 +3,11 @@ import { AboutPlatinumList } from './components/AboutPlatinumList/AboutPlatinumL
 import PlatinumCard from '@assets/images/png/PlatinumCard.png';
 import styles from './AboutPlatinum.module.scss';
 
-export const AboutPlatinum = () => {
+type TAboutPlatinumProps = {
+	goToForm: () => void;
+};
+
+export const AboutPlatinum = ({ goToForm }: TAboutPlatinumProps) => {
 	return (
 		<section className={styles.AboutPlatinum}>
 			<div className={styles.AboutPlatinum__wrapper}>
@@ -15,7 +19,7 @@ export const AboutPlatinum = () => {
 					Cash withdrawals and transfers without commission and interest.
 				</p>
 				<AboutPlatinumList />
-				<Button text='Apply for Card' />
+				<Button text='Apply for Card' onClick={goToForm} />
 			</div>
 			<img
 				className={styles.AboutPlatinum__img}
