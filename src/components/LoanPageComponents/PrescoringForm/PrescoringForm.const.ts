@@ -38,7 +38,23 @@ export const INPUT_CONFIG = [
 		star: '*',
 		placeholder: 'Select Date and Time',
 		type: 'date',
-		rules: { required: 'Incorrect date of birth' },
+		rules: {
+			required: 'Incorrect email address',
+			validate: {
+				isAdult: (value: Date) => {
+					const birthDate = new Date(value);
+					const age = new Date().getFullYear() - birthDate.getFullYear();
+					const isOver18 =
+						age > 18 ||
+						(age === 18 &&
+							new Date().getTime() >=
+								new Date(
+									birthDate.setFullYear(birthDate.getFullYear() + 18)
+								).getTime());
+					return isOver18 || 'The client must be over 18 years old';
+				},
+			},
+		},
 	},
 	{
 		id: 'passportSeries',

@@ -20,4 +20,22 @@
 	color: $button-text-color;
 	font-weight: $fw-medium;
 	font-size: $fz-xs;
+	opacity: 0;
+}
+
+.tooltipVisible {
+	width: 170px;
+	height: 36px;
+	padding: 5px 30px 7px 6px;
+	position: absolute;
+	bottom: -42px;
+	left: 0;
+	z-index: 1000;
+	font-family: $ff-main;
+	background-color: $aboutPlatinum-para-color;
+	color: $button-text-color;
+	font-weight: $fw-medium;
+	font-size: $fz-xs;
+	opacity: 1;
+	transition: opacity 300ms ease;
 }

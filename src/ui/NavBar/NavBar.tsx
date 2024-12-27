@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.scss';
 
 type TNavBarProps = {
@@ -13,7 +13,12 @@ export const NavBar = ({ NavBarItems }: { NavBarItems: TNavBarProps[] }) => {
 			<ul className={styles.navigation__list}>
 				{NavBarItems.map(item => (
 					<li key={item.id}>
-						<Link to={item.link}>{item.text}</Link>
+						<NavLink
+							to={item.link}
+							className={({ isActive }) => (isActive ? styles.active : '')}
+						>
+							{item.text}
+						</NavLink>
 					</li>
 				))}
 			</ul>

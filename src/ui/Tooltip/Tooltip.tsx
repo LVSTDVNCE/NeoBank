@@ -16,7 +16,9 @@ export const Tooltip: FC<TTooltipProps> = ({ text, children }) => {
 			onMouseLeave={() => setVisible(false)}
 		>
 			{children}
-			{visible && <div className={styles.tooltip}>{text}</div>}
+			<div className={visible ? styles.tooltipVisible : styles.tooltip}>
+				{text}
+			</div>
 		</div>
 	);
 };

@@ -1,6 +1,7 @@
 import { NavBar } from '@ui';
 import { FOOTER_NAV_ITEMS } from './Footer.const';
 import { Link } from 'react-router-dom';
+import { RoutePaths } from '@routes';
 import footerLogo from '@assets/images/png/footerLogo.png';
 import styles from './Footer.module.scss';
 
@@ -14,7 +15,7 @@ export const Footer = () => {
 		<footer className={styles.footer}>
 			<section className={styles.footer__section}>
 				<div className={styles.footer__wrapper}>
-					<Link to='/'>
+					<Link to={RoutePaths.HOME}>
 						<img
 							className={styles.footer__logo}
 							src={footerLogo}

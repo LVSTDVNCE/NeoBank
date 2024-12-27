@@ -7,7 +7,7 @@ import styles from './Input.module.scss';
 
 type TInputProps = {
 	id: string;
-	label: string;
+	label?: string;
 	star?: string;
 	type?: string;
 	placeholder?: string;
@@ -15,6 +15,7 @@ type TInputProps = {
 	errors?: FieldErrors<IPrescoringFormProps>;
 	register: UseFormRegister<IPrescoringFormProps>;
 	isSubmitted?: boolean;
+	styleProps?: string;
 };
 
 export const Input = ({
@@ -27,6 +28,7 @@ export const Input = ({
 	errors,
 	register,
 	isSubmitted,
+	styleProps,
 }: TInputProps) => {
 	const hasError = !!errors?.[id as keyof IPrescoringFormProps];
 
@@ -36,13 +38,13 @@ export const Input = ({
 
 	return (
 		<div className={styles.inputWrapper}>
-			<Label htmlFor={id} text={label} star={star} />
+			{label && <Label htmlFor={id} text={label} star={star} />}
 			<input
 				id={id}
 				type={type}
 				placeholder={placeholder}
 				{...register(id as keyof IPrescoringFormProps, rules)}
-				className={inputClass}
+				className={styleProps ? styleProps : inputClass}
 			/>
 			{hasError && (
 				<ErrorMessage
