@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Button, ErrorMessage } from '@ui';
+import { baseApi } from '@api/baseApi';
 import email from '@assets/icons/email.svg';
 import sendBtn from '@assets/icons/sendBtn.svg';
 import styles from './Subscribe.module.scss';
@@ -26,10 +27,21 @@ export const Subscribe: React.FC = () => {
 		}
 	}, []);
 
-	const onSubmit = () => {
-		setIsSubscribed(true);
-		localStorage.setItem('isSubscribed', 'true');
-		reset();
+	const onSubmit = async (data: TFormDataProps) => {
+		try {
+			await baseApi('http://localhost:8080/email', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				data,
+			});
+			setIsSubscribed(true);
+			localStorage.setItem('isSubscribed', 'true');
+			reset();
+		} catch (error) {
+			console.error('Failed to subscribe:', error);
+		}
 	};
 
 	return (

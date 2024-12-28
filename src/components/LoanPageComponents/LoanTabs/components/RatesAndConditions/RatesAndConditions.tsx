@@ -1,5 +1,5 @@
 import { Divider } from '@ui';
-import { RATES_AND_CONDITIONS } from './RatesAndCoditions.const';
+import { RATES_AND_CONDITIONS } from './RatesAndConditions.const';
 import styles from './RatesAndConditions.module.scss';
 
 export const RatesAndConditions = () => {
@@ -14,11 +14,9 @@ export const RatesAndConditions = () => {
 							<span>{item.conditions_also}</span>
 						</p>
 					</div>
-					<Divider
-						color='#7F92AC'
-						margin='24px 0 0 0'
-						display={index === RATES_AND_CONDITIONS.length - 1 ? 'none' : ''}
-					/>
+					{index !== RATES_AND_CONDITIONS.length - 1 && (
+						<Divider styleProps='RatesAndConditionsDivider' />
+					)}
 				</li>
 			))}
 		</ul>

@@ -27,6 +27,9 @@
 	&::placeholder {
 		font-size: $fz-s;
 		color: $loan-input-placeholder-color;
+		@media (max-width: 640px) {
+			font-size: $fz-xs;
+		}
 	}
 
 	&:hover,

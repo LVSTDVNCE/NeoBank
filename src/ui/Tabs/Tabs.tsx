@@ -23,7 +23,7 @@ export const Tabs = ({ tabs }: TTabsProps) => {
 						/>
 					))}
 				</div>
-				<Divider margin='-2px' color='rgba(128, 128, 128, 0.2)' />
+				<Divider styleProps='TabsDivider' />
 			</div>
 			<TAB_COMPONENT />
 		</section>

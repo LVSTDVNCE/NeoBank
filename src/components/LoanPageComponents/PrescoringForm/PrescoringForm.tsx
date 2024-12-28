@@ -2,11 +2,13 @@ import { useForm, Controller } from 'react-hook-form';
 import { useState } from 'react';
 import { INPUT_CONFIG } from './PrescoringForm.const';
 import { IPrescoringFormProps } from 'types';
-import { Button, Divider, Form, Input, Label, Select } from '@ui';
+import { Button, Divider, Form, Input, Label, Loader, Select } from '@ui';
+import { baseApi } from '@api/baseApi';
 import styles from './PrescoringForm.module.scss';
 
 export const PrescoringForm = () => {
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const {
 		control,
 		handleSubmit,
@@ -20,14 +22,39 @@ export const PrescoringForm = () => {
 		},
 	});
 
-	const onSubmit = (data: IPrescoringFormProps) => {
-		console.log('Form Data:', data);
+	const onSubmit = async (data: IPrescoringFormProps) => {
+		setIsLoading(true);
+		const processedData = {
+			...data,
+			lastName: data.lastName.trim().replace(/\s+/g, ' '),
+			firstName: data.firstName.trim().replace(/\s+/g, ' '),
+			middleName: data.middleName?.trim().replace(/\s+/g, ' '),
+		};
+
+		console.log('Form Data:', processedData);
+
+		try {
+			const response = await baseApi('http://localhost:8080/application', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				data: processedData,
+			});
+
+			console.log('API Response:', response);
+		} catch (error) {
+			console.error('Error submitting form:', error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	const amount = watch('amount');
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
+			{isLoading && <Loader />}
 			<div className={styles.form__topWrapper}>
 				<div className={styles.form__topWrapperLeft}>
 					<div className={styles.form__CustomizeWrapper}>
@@ -72,7 +99,7 @@ export const PrescoringForm = () => {
 						You have chosen the amount
 					</h4>
 					<p className={styles.form__chosenValue}>{amount} ₽</p>
-					<Divider width='220px' color='rgba(128, 128, 128, 0.2)' />
+					<Divider styleProps='PrescoringFormDivider' />
 				</div>
 			</div>
 

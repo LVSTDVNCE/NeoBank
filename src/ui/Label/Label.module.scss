@@ -5,6 +5,10 @@
 	font-size: $fz-m;
 	color: $primary-text-color;
 
+	@media (max-width: 640px) {
+		font-size: $fz-s;
+	}
+
 	span {
 		color: red;
 	}
