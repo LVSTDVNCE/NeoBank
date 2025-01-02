@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Button, ErrorMessage } from '@ui';
-import { baseApi } from '@api/baseApi';
+import { subscribeToNews } from '@api/apiHome/subscribeToNews';
+import { ISubscribeFormProps } from 'types';
 import email from '@assets/icons/email.svg';
 import sendBtn from '@assets/icons/sendBtn.svg';
 import styles from './Subscribe.module.scss';
-
-type TFormDataProps = {
-	email: string;
-};
 
 export const Subscribe: React.FC = () => {
 	const {
@@ -17,8 +14,9 @@ export const Subscribe: React.FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<TFormDataProps>();
+	} = useForm<ISubscribeFormProps>();
 	const [isSubscribed, setIsSubscribed] = useState<boolean>(false);
+	const [isFailed, setIsFailed] = useState<boolean>(false);
 
 	useEffect(() => {
 		const subscriptionStatus = localStorage.getItem('isSubscribed');
@@ -27,20 +25,15 @@ export const Subscribe: React.FC = () => {
 		}
 	}, []);
 
-	const onSubmit = async (data: TFormDataProps) => {
-		try {
-			await baseApi('http://localhost:8080/email', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				data,
-			});
-			setIsSubscribed(true);
+	const onSubmit = async (data: ISubscribeFormProps) => {
+		const success = await subscribeToNews(data);
+		if (success) {
 			localStorage.setItem('isSubscribed', 'true');
+			setIsSubscribed(true);
 			reset();
-		} catch (error) {
-			console.error('Failed to subscribe:', error);
+			setIsFailed(false);
+		} else {
+			setIsFailed(true);
 		}
 	};
 
@@ -75,7 +68,7 @@ export const Subscribe: React.FC = () => {
 						{...register('email', {
 							required: 'Email is required',
 							pattern: {
-								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+								value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
 								message: 'Invalid email address',
 							},
 						})}
@@ -84,6 +77,7 @@ export const Subscribe: React.FC = () => {
 						<img src={sendBtn} alt='send' />
 					</Button>
 					{errors.email && <ErrorMessage text={errors.email.message} />}
+					{isFailed && <ErrorMessage text='Failed to subscribe' />}
 				</form>
 			)}
 		</section>

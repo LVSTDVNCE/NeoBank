@@ -20,7 +20,7 @@ export const Button: FC<TButtonProps> = ({
 		<button
 			onClick={onClick}
 			disabled={disabled}
-			className={stylesProps ? `${styles[stylesProps]}` : styles.button}
+			className={stylesProps ? styles[stylesProps] : styles.button}
 		>
 			{children}
 			{text}

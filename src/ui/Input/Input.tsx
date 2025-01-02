@@ -49,7 +49,10 @@ export const Input = ({
 			{hasError && (
 				<ErrorMessage
 					stylesProps='loan-form-input'
-					text={errors[id as keyof IPrescoringFormProps]?.message as string}
+					text={
+						(errors[id as keyof IPrescoringFormProps]?.message as string) ??
+						'The field must contain only letters'
+					}
 				/>
 			)}
 			{isSubmitted && (

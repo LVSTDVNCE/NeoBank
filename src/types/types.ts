@@ -15,9 +15,24 @@ export interface IPrescoringFormProps {
 	term: number;
 	firstName: string;
 	lastName: string;
-	middleName: string | null;
+	middleName?: string | null;
 	email: string;
 	birthdate: string | Date;
 	passportSeries: string;
 	passportNumber: string;
+}
+
+export interface ISubscribeFormProps {
+	email: string;
+}
+
+export interface IOffersProps {
+	applicationId: number;
+	isInsuranceEnabled: boolean;
+	isSalaryClient: boolean;
+	monthlyPayment: number;
+	rate: number;
+	requestedAmount: number;
+	term: number;
+	totalAmount: number;
 }

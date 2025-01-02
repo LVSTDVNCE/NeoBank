@@ -4,19 +4,28 @@ export const INPUT_CONFIG = [
 		label: 'Your last name',
 		star: '*',
 		placeholder: 'For Example Doe',
-		rules: { required: 'Enter your last name' },
+		rules: {
+			required: 'Enter your last name',
+			pattern: { value: /^[A-Za-zА-Яа-яёЁ\s]{2,30}$/ },
+		},
 	},
 	{
 		id: 'firstName',
 		label: 'Your first name',
 		star: '*',
 		placeholder: 'For Example Jhon',
-		rules: { required: 'Enter your first name' },
+		rules: {
+			required: 'Enter your first name',
+			pattern: { value: /^[A-Za-zА-Яа-яёЁ\s]{2,30}$/ },
+		},
 	},
 	{
 		id: 'middleName',
 		label: 'Your patronymic',
 		placeholder: 'For Example Victorovich',
+		rules: {
+			pattern: { value: /^[A-Za-zА-Яа-яёЁ\s]{2,30}$/ },
+		},
 	},
 	{
 		id: 'email',
@@ -27,7 +36,7 @@ export const INPUT_CONFIG = [
 		rules: {
 			required: 'Incorrect email address',
 			pattern: {
-				value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+				value: /^[\w.-]{2,50}@[a-zA-Z0-9.-]{2,20}\.[a-zA-Z]{2,6}$/,
 				message: 'Incorrect email address',
 			},
 		},
@@ -39,7 +48,7 @@ export const INPUT_CONFIG = [
 		placeholder: 'Select Date and Time',
 		type: 'date',
 		rules: {
-			required: 'Incorrect email address',
+			required: 'Incorrect date of birth',
 			validate: {
 				isAdult: (value: Date) => {
 					const birthDate = new Date(value);

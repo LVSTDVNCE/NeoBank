@@ -93,7 +93,12 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 			{
 				id: 2,
 				onClick: nextSlide,
-				disabled: currentSlide === slides.length - 3,
+				disabled:
+					window.innerWidth >= 1180
+						? currentSlide === slides.length - 3
+						: window.innerWidth >= 600
+						? currentSlide === slides.length - 2
+						: currentSlide === slides.length - 1,
 				icon: right,
 			},
 		],
