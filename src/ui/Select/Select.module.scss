@@ -4,13 +4,33 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	flex: content;
 }
 
 .select {
-	width: 297px;
+	min-width: 297px;
 	height: 40px;
 	padding: 9px 8px 9px 16px;
 	border: 2px solid $loan-input-border-color;
+	border-radius: 6px;
+	background-color: $loan-input-color;
+	font-size: $fz-s;
+
+	@media (max-width: 400px) {
+		min-width: 250px;
+	}
+
+	&:hover,
+	&:focus {
+		border: 2px solid $loan-input-border-hover-color;
+	}
+}
+
+.selectIncorrect {
+	width: 297px;
+	height: 40px;
+	padding: 9px 8px 9px 16px;
+	border: 2px solid $loan-input-error-color;
 	border-radius: 6px;
 	background-color: $loan-input-color;
 	font-size: $fz-s;

@@ -1,0 +1,49 @@
+@use '../../styles/variables.scss' as *;
+
+.modal {
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__content {
+		position: relative;
+		width: 448px;
+		background: $button-text-color;
+		padding: 16px;
+	}
+
+	&__topWrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 16px;
+		font-weight: $fw-bold;
+		font-size: $fz-m;
+		line-height: $lh-147;
+		color: $primary-text-color;
+	}
+
+	&__text {
+		font-size: $fz-m;
+		font-weight: $fw-medium;
+		line-height: $lh-147;
+		color: $secondary-text-color;
+		margin-bottom: 90px;
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 40px;
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+	}
+}

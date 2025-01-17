@@ -1,0 +1,20 @@
+@use '../../styles/variables.scss' as *;
+
+.message {
+	text-align: center;
+
+	&__heading {
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		line-height: $lh-112;
+		color: $primary-text-color;
+		margin-bottom: 32px;
+	}
+
+	&__paragraph {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-112;
+		color: $secondary-text-color;
+	}
+}

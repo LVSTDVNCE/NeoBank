@@ -1,4 +1,5 @@
-import { ReactNode, useState, FC } from 'react';
+import { ReactNode, FC } from 'react';
+import { useHover } from 'src/hooks/useHover';
 import styles from './Tooltip.module.scss';
 
 type TTooltipProps = {
@@ -7,16 +8,12 @@ type TTooltipProps = {
 };
 
 export const Tooltip: FC<TTooltipProps> = ({ text, children }) => {
-	const [visible, setVisible] = useState(false);
+	const { isHover, bind } = useHover<HTMLDivElement>();
 
 	return (
-		<div
-			className={styles.tooltipWrapper}
-			onMouseEnter={() => setVisible(true)}
-			onMouseLeave={() => setVisible(false)}
-		>
+		<div className={styles.tooltipWrapper} {...bind}>
 			{children}
-			<div className={visible ? styles.tooltipVisible : styles.tooltip}>
+			<div className={isHover ? styles.tooltipVisible : styles.tooltip}>
 				{text}
 			</div>
 		</div>

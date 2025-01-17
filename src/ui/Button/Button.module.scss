@@ -144,11 +144,10 @@
 	font-size: $fz-m;
 	color: $tabs-text-color;
 	font-weight: $fw-medium;
-	padding-bottom: 12px;
-	margin-left: 32px;
+	padding: 0px 16px 12px 16px;
 
 	@media (max-width: 510px) {
-		margin-left: 0px;
+		padding: 0px 8px 12px 8px;
 		font-size: $fz-s;
 	}
 
@@ -161,12 +160,11 @@
 	font-size: $fz-m;
 	color: $tabs-text-color;
 	font-weight: $fw-medium;
-	padding-bottom: 12px;
-	margin-left: 32px;
+	padding: 0px 16px 12px 16px;
 	border-bottom: 2px solid $tabs-text-color;
 
 	@media (max-width: 510px) {
-		margin-left: 0px;
+		padding: 0px 8px 12px 8px;
 		font-size: $fz-s;
 	}
 
@@ -209,6 +207,126 @@
 	position: absolute;
 	bottom: 32px;
 	right: 32px;
+
+	&:hover {
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}
+
+// LoanOffer Button
+
+.LoanOffer {
+	background-color: $bg-color-button;
+	border-radius: 8px;
+	padding: 16px 49px 14px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:hover {
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		font-size: $fz-s;
+	}
+}
+
+// PaymentSchedule
+// Deny
+
+.DenyButton {
+	background-color: $loan-deny-btn-color;
+	border-radius: 8px;
+	padding: 11px 27px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:hover {
+		background-color: $loan-deny-btn-hover-color;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}
+
+// Send
+
+.SendButton {
+	background-color: $bg-color-button;
+	border-radius: 8px;
+	padding: 11px 27px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:disabled {
+		background-color: $hover-button-BgColor;
+		cursor: not-allowed;
+	}
+
+	&:hover {
+		background-color: $hover-button-BgColor;
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}
+
+//CloseModal
+
+.CloseModal {
+	background-color: none;
+	border-radius: 8px;
+	padding: 8px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:hover {
+		transform: scale(1.2);
+	}
+
+	@media (max-width: 600px) {
+		padding: 12px;
+		font-size: $fz-s;
+	}
+}
+
+//signingButton
+
+.signingButton {
+	background-color: $bg-color-button;
+	border-radius: 8px;
+	padding: 8px 52px 8px 52px;
+	color: $button-text-color;
+	font-weight: $fw-bold;
+	font-size: $fz-m;
+	line-height: $lh-112;
+	transition: 150ms;
+
+	&:disabled {
+		background-color: $hover-button-BgColor;
+		cursor: not-allowed;
+	}
 
 	&:hover {
 		background-color: $hover-button-BgColor;

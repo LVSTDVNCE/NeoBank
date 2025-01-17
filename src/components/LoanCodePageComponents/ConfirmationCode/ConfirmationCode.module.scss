@@ -1,0 +1,44 @@
+@use '../../../styles/variables.scss' as *;
+
+.code {
+	max-width: 554px;
+	display: flex;
+	align-self: center;
+	justify-self: center;
+	flex-direction: column;
+
+	&__heading {
+		text-align: center;
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		line-height: $lh-112;
+		color: $primary-text-color;
+		margin-bottom: 32px;
+	}
+
+	&__inputsContainer {
+		display: flex;
+		align-self: center;
+		gap: 16px;
+	}
+
+	&__input {
+		width: 48px;
+		height: 48px;
+		border: 1px solid $loan-input-placeholder-color;
+		border-radius: 8px;
+		font-size: $fz-over-m;
+		text-align: center;
+
+		&:hover,
+		&:focus {
+			border: 2px solid $loan-input-code-hover-color;
+		}
+
+		&[type='number']::-webkit-inner-spin-button,
+		&[type='number']::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+}
