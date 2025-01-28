@@ -11,7 +11,7 @@ export const HowGetCard = () => {
 					<li className={styles.howTo__item} key={item.step}>
 						<div className={styles.howTo__wrapper}>
 							<span className={styles.howTo__step}>{item.step}</span>
-							<Divider styleProps='HowGetCard' />
+							<Divider styleProps={styles.HowGetCard} />
 						</div>
 						<p className={styles.howTo__para}>{item.text}</p>
 					</li>

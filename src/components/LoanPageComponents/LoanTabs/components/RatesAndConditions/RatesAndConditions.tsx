@@ -15,7 +15,7 @@ export const RatesAndConditions = () => {
 						</p>
 					</div>
 					{index !== RATES_AND_CONDITIONS.length - 1 && (
-						<Divider styleProps='RatesAndConditionsDivider' />
+						<Divider styleProps={styles.RatesAndConditionsDivider} />
 					)}
 				</li>
 			))}

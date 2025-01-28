@@ -36,3 +36,36 @@ export interface IOffersProps {
 	term: number;
 	totalAmount: number;
 }
+
+type TEmploymentProps = {
+	employmentStatus: string;
+	employerINN: string;
+	salary: number;
+	position: string;
+	workExperienceTotal: number;
+	workExperienceCurrent: number;
+};
+
+export interface ILoanSecondStepProps {
+	gender: string;
+	maritalStatus: string;
+	dependentAmount: number;
+	passportIssueDate: string | Date;
+	passportIssueBranch: string;
+	employment: TEmploymentProps;
+}
+
+export interface IPaymentScheduleRowProps {
+	number: number;
+	date: string;
+	totalPayment: number;
+	interestPayment: number;
+	debtPayment: number;
+	remainingDebt: number;
+}
+
+export interface IPaymentScheduleProps {
+	credit: {
+		paymentSchedule: IPaymentScheduleRowProps[];
+	};
+}

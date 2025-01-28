@@ -1,0 +1,92 @@
+@use '../../../../../styles/variables.scss' as *;
+
+.LoanOffers {
+	width: 100%;
+	margin-bottom: 96px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 33px;
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 295px;
+		height: 602px;
+		padding: 32px;
+		background-color: $button-text-color;
+		border-radius: 28px;
+		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+		transition: border 0.05s ease;
+		&:hover {
+			border: 2px solid $bg-color-button;
+		}
+	}
+
+	&__img {
+		width: 150px;
+		height: 150px;
+		margin-bottom: 32px;
+	}
+
+	&__paragraph {
+		margin-bottom: 14px;
+		font-size: $fz-m;
+		font-weight: $fw-medium;
+		line-height: $lh-112;
+		color: $primary-text-color;
+
+		& img {
+			margin-left: 8px;
+		}
+
+		&:nth-child(8) {
+			margin-bottom: 90px;
+		}
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
+	}
+}
+
+.successful {
+	width: 100%;
+	margin-bottom: 86px;
+	padding: 24px 24px 34px 24px;
+	border: 1px solid $loan-input-border-hover-color;
+	border-radius: 10px;
+	text-align: center;
+	@media (max-width: 600px) {
+		margin-bottom: 66px;
+	}
+
+	&__heading {
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		line-height: $lh-112;
+		color: $primary-text-color;
+		margin-bottom: 32px;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+		}
+		@media (max-width: 400px) {
+			font-size: $fz-over-m;
+		}
+	}
+
+	&__paragraph {
+		font-size: $fw-medium;
+		font-size: $fz-m;
+		line-height: $lh-112;
+		color: $secondary-text-color;
+		@media (max-width: 600px) {
+			font-size: $fz-s;
+		}
+		@media (max-width: 400px) {
+			font-size: $fz-xs;
+		}
+	}
+}

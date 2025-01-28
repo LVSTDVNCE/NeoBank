@@ -1,0 +1,74 @@
+@use '../../../styles/variables.scss' as *;
+
+.sign {
+	position: relative;
+	min-height: 324px;
+	margin-top: -37px;
+	margin-bottom: 86px;
+	@media (max-width: 600px) {
+		margin-top: 37px;
+	}
+
+	&__headingWrapper {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 80px;
+		row-gap: 20px;
+		margin-bottom: 41px;
+		@media (max-width: 600px) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__title {
+		font-weight: $fw-bold;
+		font-size: $fz-l;
+		@media (max-width: 600px) {
+			font-size: $fz-xm;
+		}
+		@media (max-width: 460px) {
+			font-size: $fz-over-m;
+		}
+	}
+
+	&__paragraph {
+		font-weight: $fw-medium;
+		font-size: $fz-m;
+	}
+
+	&__info {
+		font-weight: $fw-medium;
+		font-size: $fz-over-m;
+		line-height: $lh-112;
+		color: $secondary-text-color;
+		margin-bottom: 32px;
+	}
+
+	&__pdfInfo {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	&__pdfLink {
+		font-weight: $fw-medium;
+		font-size: $fz-over-m;
+		line-height: $lh-112;
+		color: $primary-text-color;
+		transition: color 0.3s ease;
+
+		&:hover {
+			color: $hover-button-BgColor;
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 80px;
+		right: 0;
+		bottom: 0;
+	}
+}

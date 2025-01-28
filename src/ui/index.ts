@@ -14,3 +14,7 @@ export { Input } from './Input/Input';
 export { Select } from './Select/Select';
 export { Label } from './Label/Label';
 export { Form } from './Form/Form';
+export { StepMessage } from './StepMessage/StepMessage';
+export { Table } from './Table/Table';
+export { CheckBox } from './CheckBox/CheckBox';
+export { Modal } from './Modal/Modal';

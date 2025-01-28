@@ -1,0 +1,13 @@
+@use '../../styles//variables.scss' as *;
+
+.checkbox__wrapper {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.checkbox__text {
+	font-weight: $fw-regular;
+	font-size: $fz-m;
+	color: $primary-text-color;
+}

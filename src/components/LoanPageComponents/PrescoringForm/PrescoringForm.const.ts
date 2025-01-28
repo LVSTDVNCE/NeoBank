@@ -1,4 +1,15 @@
-export const INPUT_CONFIG = [
+import { IPrescoringFormProps } from 'types';
+
+type TInputConfigProps = {
+	id: keyof IPrescoringFormProps;
+	label?: string;
+	type?: string;
+	rules?: object;
+	placeholder?: string;
+	star?: string;
+};
+
+export const INPUT_CONFIG: TInputConfigProps[] = [
 	{
 		id: 'lastName',
 		label: 'Your last name',

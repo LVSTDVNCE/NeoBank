@@ -1,24 +1,29 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form';
-import { IPrescoringFormProps } from 'types';
+import {
+	FieldErrors,
+	UseFormRegister,
+	FieldValues,
+	Path,
+	get,
+} from 'react-hook-form';
 import { ErrorMessage, Label } from '@ui';
 import error from '@assets/icons/Error_icon.png';
 import success from '@assets/icons/Success-icon.png';
 import styles from './Input.module.scss';
 
-type TInputProps = {
-	id: string;
+type TInputProps<T extends FieldValues> = {
+	id: Path<T>;
 	label?: string;
 	star?: string;
 	type?: string;
 	placeholder?: string;
 	rules?: object;
-	errors?: FieldErrors<IPrescoringFormProps>;
-	register: UseFormRegister<IPrescoringFormProps>;
+	errors?: FieldErrors<T>;
+	register: UseFormRegister<T>;
 	isSubmitted?: boolean;
 	styleProps?: string;
 };
 
-export const Input = ({
+export const Input = <T extends FieldValues>({
 	id,
 	label,
 	star,
@@ -29,8 +34,9 @@ export const Input = ({
 	register,
 	isSubmitted,
 	styleProps,
-}: TInputProps) => {
-	const hasError = !!errors?.[id as keyof IPrescoringFormProps];
+}: TInputProps<T>) => {
+	const hasError = !!get(errors, id);
+	const errorMessage = get(errors, `${id}.message`) as string;
 
 	const inputClass = `${styles.input} ${
 		hasError ? styles.error : styles.success
@@ -38,27 +44,24 @@ export const Input = ({
 
 	return (
 		<div className={styles.inputWrapper}>
-			{label && <Label htmlFor={id} text={label} star={star} />}
+			{label && <Label htmlFor={id as string} text={label} star={star} />}
 			<input
-				id={id}
+				id={id as string}
 				type={type}
 				placeholder={placeholder}
-				{...register(id as keyof IPrescoringFormProps, rules)}
-				className={styleProps ? styleProps : inputClass}
+				{...register(id, rules)}
+				className={`${inputClass} ${styleProps}`}
 			/>
 			{hasError && (
 				<ErrorMessage
 					stylesProps='loan-form-input'
-					text={
-						(errors[id as keyof IPrescoringFormProps]?.message as string) ??
-						'The field must contain only letters'
-					}
+					text={errorMessage ?? 'The field must contain only letters'}
 				/>
 			)}
 			{isSubmitted && (
 				<img
 					src={hasError ? error : success}
-					alt={hasError ? error : success}
+					alt={hasError ? 'Error' : 'Success'}
 					className={styles.iconMessage}
 				/>
 			)}
