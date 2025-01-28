@@ -1,4 +1,4 @@
-import { ContinuationOfTheApp } from '@components/LoanApplicationIdPageComponents';
+import { ContinuationOfTheApp } from '@components/index';
 
 const LoanApplicationId = () => {
 	return <ContinuationOfTheApp />;

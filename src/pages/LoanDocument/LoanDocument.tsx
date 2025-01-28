@@ -1,4 +1,4 @@
-import { PaymentSchedule } from '@components/LoanDocumentPageComponents';
+import { PaymentSchedule } from '@components/index';
 
 const LoanDocument = () => {
 	return <PaymentSchedule />;

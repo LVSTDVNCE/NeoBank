@@ -3,7 +3,7 @@ import {
 	HowGetCard,
 	LoanTabs,
 	PrescoringForm,
-} from '@components/LoanPageComponents';
+} from '@components/index';
 import { useRef } from 'react';
 
 const Loan = () => {

@@ -1,12 +1,15 @@
 import { useState, useRef } from 'react';
-import styles from './ConfirmationCode.module.scss';
-import { baseApi } from '@api/baseApi';
 import { useLocation } from 'react-router-dom';
+import { Button, ErrorMessage, Loader, StepMessage } from '@ui';
+import { apiLoan } from '@api/apiLoan';
+import CongratsIcon from '@assets/icons/offerIcon.svg';
+import styles from './ConfirmationCode.module.scss';
 
 export const ConfirmationCode = () => {
 	const [pin, setPin] = useState<string[]>(['', '', '', '']);
 	const [error, setError] = useState<string | null>(null);
-	const [success, setSuccess] = useState<boolean>(false);
+	const [isSuccessful, setIsSuccessful] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 	const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
 	const location = useLocation();
@@ -40,57 +43,63 @@ export const ConfirmationCode = () => {
 
 	const handleSubmit = async (code: string) => {
 		setError(null);
-		setSuccess(false);
+		setIsLoading(true);
 
 		try {
-			const response = (await baseApi(
-				`http://localhost:8080/document/${applicationId}/code`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					data: code,
-				}
-			)) as number;
-
-			const result = await response;
-
-			if (result) {
-				setSuccess(true);
-			} else {
-				console.log(error);
-			}
+			await apiLoan.confirmCode(code, applicationId);
+			setIsSuccessful(true);
 		} catch (error) {
+			setError('Ошибка');
 			console.log(error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
+	if (isSuccessful) {
+		return (
+			<div className={styles.success}>
+				<img src={CongratsIcon} alt='CongratsIcon' />
+				<StepMessage
+					heading='Congratulations! You have completed your new credit card.'
+					paragraph='Your credit card will arrive soon. Thank you for choosing us!'
+				/>
+				<Button text='View other offers of our bank' />
+			</div>
+		);
+	}
+
 	return (
 		<section className={styles.code}>
-			<h2 className={styles.code__heading}>Please enter confirmation code</h2>
-			<div className={styles.code__inputsContainer}>
-				{pin.map((digit, index) => (
-					<input
-						key={index}
-						type='number'
-						maxLength={1}
-						value={digit}
-						onChange={e => handleChange(e.target.value, index)}
-						onKeyDown={e => handleKeyDown(e, index)}
-						ref={el => (inputsRef.current[index] = el)}
-						className={styles.code__input}
-						style={{
-							backgroundImage: digit
-								? 'none'
-								: `radial-gradient(circle, transparent 30%, rgb(97, 97, 97) 31%, rgb(97, 97, 97)  32%, transparent 33%)`,
-						}}
-					/>
-				))}
-			</div>
-
-			{error && <p className={styles.error}>{error}</p>}
-			{success && <p className={styles.success}>Code verified successfully!</p>}
+			{isLoading ? (
+				<Loader />
+			) : (
+				<>
+					<h2 className={styles.code__heading}>
+						Please enter confirmation code
+					</h2>
+					<div className={styles.code__inputsContainer}>
+						{pin.map((digit, index) => (
+							<input
+								key={index}
+								type='number'
+								maxLength={1}
+								value={digit}
+								onChange={e => handleChange(e.target.value, index)}
+								onKeyDown={e => handleKeyDown(e, index)}
+								ref={el => (inputsRef.current[index] = el)}
+								className={styles.code__input}
+								style={{
+									backgroundImage: digit
+										? 'none'
+										: `radial-gradient(circle, transparent 30%, rgb(97, 97, 97) 31%, rgb(97, 97, 97)  32%, transparent 33%)`,
+								}}
+							/>
+						))}
+					</div>
+					{error && <ErrorMessage text={error} />}
+				</>
+			)}
 		</section>
 	);
 };

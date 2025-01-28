@@ -6,6 +6,7 @@ import OfferIcon from '@assets/icons/offerIcon.svg';
 import invalid from '@assets/icons/Error_icon.png';
 import valid from '@assets/icons/Success-icon.png';
 import styles from './LoanOffers.module.scss';
+import { useApplicationStore } from 'src/store/LoanStepStore';
 
 type TLoanOffersProps = {
 	offers: IOffersProps[];
@@ -14,6 +15,7 @@ type TLoanOffersProps = {
 export const LoanOffers = ({ offers }: TLoanOffersProps) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccessful, setIsSuccessful] = useState(false);
+	const { setId } = useApplicationStore();
 
 	const sortedOffers = [...offers].sort(
 		(a, b) => a.monthlyPayment - b.monthlyPayment
@@ -22,7 +24,9 @@ export const LoanOffers = ({ offers }: TLoanOffersProps) => {
 	const handleSelect = async (selectedOffer: IOffersProps) => {
 		setIsLoading(true);
 		try {
-			await apiLoan.SelectLoanOffers(selectedOffer);
+			const response = await apiLoan.SelectLoanOffers(selectedOffer);
+			setId(selectedOffer.applicationId);
+			console.log(response);
 		} catch (error) {
 			console.error('Error applying for the loan:', error);
 		} finally {

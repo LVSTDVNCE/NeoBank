@@ -4,6 +4,7 @@ import { finishRegistration } from './finishRegistration';
 import { getPaymentSchedule } from './getPaymentSchedule';
 import { agreeWithSchedule } from './agreeWithSchedule';
 import { signDocument } from './signDocument';
+import { confirmCode } from './confirmCode';
 
 export const apiLoan = {
 	prescoringData,
@@ -12,4 +13,5 @@ export const apiLoan = {
 	getPaymentSchedule,
 	agreeWithSchedule,
 	signDocument,
+	confirmCode,
 };

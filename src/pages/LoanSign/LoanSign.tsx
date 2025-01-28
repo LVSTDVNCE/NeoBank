@@ -1,4 +1,4 @@
-import { SigningOfDocuments } from '@components/LoanSignPageComponents';
+import { SigningOfDocuments } from '@components/index';
 
 const LoanSign = () => {
 	return <SigningOfDocuments />;
