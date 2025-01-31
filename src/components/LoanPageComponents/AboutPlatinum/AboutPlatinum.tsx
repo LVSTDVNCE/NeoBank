@@ -2,7 +2,7 @@ import { Button } from '@ui';
 import { AboutPlatinumList } from './components/AboutPlatinumList/AboutPlatinumList';
 import PlatinumCard from '@assets/images/png/PlatinumCard.png';
 import styles from './AboutPlatinum.module.scss';
-import { useApplicationStore } from 'src/store/LoanStepStore';
+import { useApplicationStore } from 'src/store/ApplicationStore';
 import { useNavigate } from 'react-router-dom';
 
 type TAboutPlatinumProps = {

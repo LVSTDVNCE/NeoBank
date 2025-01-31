@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { IOffersProps } from 'types';
 import { Button, Loader } from '@ui';
 import { apiLoan } from '@api/apiLoan';
+import { useApplicationStore } from 'src/store/ApplicationStore';
 import OfferIcon from '@assets/icons/offerIcon.svg';
 import invalid from '@assets/icons/Error_icon.png';
 import valid from '@assets/icons/Success-icon.png';
 import styles from './LoanOffers.module.scss';
-import { useApplicationStore } from 'src/store/LoanStepStore';
 
 type TLoanOffersProps = {
 	offers: IOffersProps[];
@@ -24,9 +24,8 @@ export const LoanOffers = ({ offers }: TLoanOffersProps) => {
 	const handleSelect = async (selectedOffer: IOffersProps) => {
 		setIsLoading(true);
 		try {
-			const response = await apiLoan.SelectLoanOffers(selectedOffer);
+			await apiLoan.SelectLoanOffers(selectedOffer);
 			setId(selectedOffer.applicationId);
-			console.log(response);
 		} catch (error) {
 			console.error('Error applying for the loan:', error);
 		} finally {

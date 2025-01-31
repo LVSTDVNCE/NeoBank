@@ -18,8 +18,8 @@ export const fetchNews = async (
 	try {
 		const response = await baseApi<TNewsResponseProps>(url);
 
-		if (response.status === 'ok') {
-			const articles = response.articles;
+		if (response.statusCode === 200) {
+			const articles = response.data.articles;
 
 			const results = await Promise.allSettled(
 				articles.map(article => {
@@ -52,7 +52,7 @@ export const fetchNews = async (
 		} else {
 			console.error(
 				'Error fetching news: Invalid response status',
-				response.status
+				response.statusCode
 			);
 			return [];
 		}

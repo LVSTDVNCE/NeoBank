@@ -1,7 +1,7 @@
 import { baseApi } from '@api/baseApi';
 
 type TConfirmCode = {
-	status: number;
+	statusCode: number;
 };
 
 export const confirmCode = async (code: string, applicationId: string) => {
@@ -17,11 +17,7 @@ export const confirmCode = async (code: string, applicationId: string) => {
 			}
 		);
 
-		if (response.status == 200) {
-			return {
-				status: response.status,
-			};
-		}
+		return response.statusCode;
 	} catch (error) {
 		console.log(error);
 	}

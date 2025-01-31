@@ -38,8 +38,6 @@ export const ContinuationOfTheApp = () => {
 				...data,
 				account: '11223344556677889900',
 			};
-
-			console.log(enhancedData);
 			await apiLoan.finishRegistration(enhancedData, applicationId);
 		} catch (error) {
 			console.error(error);

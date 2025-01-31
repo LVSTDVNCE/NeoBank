@@ -16,7 +16,7 @@ export const fetchExchangeRates = async (): Promise<ICurrencyRateProps[]> => {
 		const ratePromises = CURRENCIES.map(currency =>
 			Promise.resolve({
 				currency,
-				rate: data.conversion_rates[currency],
+				rate: data.data.conversion_rates[currency],
 			})
 		);
 

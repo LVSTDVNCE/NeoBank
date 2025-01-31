@@ -2,8 +2,10 @@ import { baseApi } from '@api/baseApi';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-type TStatus = {
-	status: string;
+type TResponse = {
+	data: {
+		status: string;
+	};
 };
 
 type TApplication = {
@@ -11,6 +13,8 @@ type TApplication = {
 	status: string;
 	setId: (state: number) => void;
 	fetchStatus: (id: string) => void;
+	clearStatus: () => void;
+	clearId: () => void;
 };
 
 export const useApplicationStore = create<TApplication>()(
@@ -18,10 +22,12 @@ export const useApplicationStore = create<TApplication>()(
 		set => ({
 			id: 0,
 			setId: newId => set({ id: newId }),
+			clearId: () => set({ id: 0 }),
 			status: '',
+			clearStatus: () => set({ status: '' }),
 			fetchStatus: async (id: string) => {
 				try {
-					const response: TStatus = await baseApi(
+					const response: TResponse = await baseApi(
 						`http://localhost:8080/admin/application/${id}`,
 						{
 							method: 'GET',
@@ -30,7 +36,7 @@ export const useApplicationStore = create<TApplication>()(
 							},
 						}
 					);
-					set({ status: response.status });
+					set({ status: response.data.status });
 				} catch (error) {
 					console.log(error);
 					set({ status: '' });

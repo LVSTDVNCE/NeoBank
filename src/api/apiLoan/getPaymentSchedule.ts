@@ -1,9 +1,13 @@
 import { baseApi } from '@api/baseApi';
 import { IPaymentScheduleProps } from 'types';
 
+type TResponse = {
+	data: IPaymentScheduleProps;
+};
+
 export const getPaymentSchedule = async (id: string) => {
 	try {
-		const response: IPaymentScheduleProps = await baseApi(
+		const response: TResponse = await baseApi(
 			`http://localhost:8080/admin/application/${id}`,
 			{
 				method: 'GET',
@@ -12,7 +16,7 @@ export const getPaymentSchedule = async (id: string) => {
 				},
 			}
 		);
-		return response;
+		return response.data;
 	} catch (error) {
 		console.error(error);
 	}

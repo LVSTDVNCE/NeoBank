@@ -1,7 +1,7 @@
 import { baseApi } from '@api/baseApi';
 
 type TSign = {
-	status: number;
+	statusCode: number;
 };
 
 export const signDocument = async (id: string) => {
@@ -16,7 +16,7 @@ export const signDocument = async (id: string) => {
 			}
 		);
 
-		return response;
+		return response.statusCode;
 	} catch (error) {
 		console.error('Error signing document:', error);
 		throw error;

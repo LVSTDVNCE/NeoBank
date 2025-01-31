@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from '@ui';
 import Close from '@assets/icons/Close_square.svg';
@@ -8,9 +8,15 @@ type TModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
 	text: string;
+	children: ReactNode;
 };
 
-export const Modal: React.FC<TModalProps> = ({ isOpen, onClose, text }) => {
+export const Modal: React.FC<TModalProps> = ({
+	isOpen,
+	onClose,
+	text,
+	children,
+}) => {
 	if (!isOpen) return null;
 
 	return ReactDOM.createPortal(
@@ -23,10 +29,7 @@ export const Modal: React.FC<TModalProps> = ({ isOpen, onClose, text }) => {
 					</Button>
 				</div>
 				<p className={styles.modal__text}>{text}</p>
-				<div className={styles.modal__buttons}>
-					<Button text='Deny' stylesProps='DenyButton' />
-					<Button text='Cancel' stylesProps='SendButton' onClick={onClose} />
-				</div>
+				<div className={styles.modal__buttons}>{children}</div>
 			</div>
 		</div>,
 		document.getElementById('modal-root') as HTMLElement

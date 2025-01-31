@@ -47,6 +47,13 @@
 	position: relative;
 }
 
+.TableWrapperInner {
+	@media (max-width: 716px) {
+		overflow-y: hidden;
+		overflow-x: scroll;
+	}
+}
+
 .Table {
 	width: 100%;
 	border-collapse: collapse;
@@ -80,6 +87,10 @@
 		font-size: $fz-xs;
 		line-height: $lh-147;
 		color: $primary-text-color;
+
+		td {
+			min-width: 72px;
+		}
 	}
 }
 
@@ -87,9 +98,20 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	margin-top: 10px;
+
+	@media (max-width: 553px) {
+		justify-content: center;
+	}
 
 	&__sends {
 		display: flex;
-		gap: 40px;
+		justify-content: center;
+		column-gap: 37px;
+		row-gap: 10px;
+		flex-wrap: wrap;
+		@media (max-width: 471px) {
+			margin-top: 10px;
+		}
 	}
 }

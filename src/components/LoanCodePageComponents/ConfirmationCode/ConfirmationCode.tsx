@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, ErrorMessage, Loader, StepMessage } from '@ui';
 import { apiLoan } from '@api/apiLoan';
+import { useApplicationStore } from 'src/store/ApplicationStore';
 import CongratsIcon from '@assets/icons/offerIcon.svg';
 import styles from './ConfirmationCode.module.scss';
 
@@ -12,9 +13,9 @@ export const ConfirmationCode = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
-	const location = useLocation();
-	const pathSegments = location.pathname.split('/');
-	const applicationId = pathSegments[pathSegments.length - 2];
+	const navigate = useNavigate();
+
+	const { clearStatus, clearId, id } = useApplicationStore();
 
 	const handleChange = (value: string, index: number) => {
 		if (/\D/.test(value)) return;
@@ -44,12 +45,17 @@ export const ConfirmationCode = () => {
 	const handleSubmit = async (code: string) => {
 		setError(null);
 		setIsLoading(true);
-
 		try {
-			await apiLoan.confirmCode(code, applicationId);
-			setIsSuccessful(true);
+			const response = await apiLoan.confirmCode(code, id.toString());
+			if (response == 200) {
+				setIsSuccessful(true);
+				clearId();
+				clearStatus();
+			} else {
+				setError('Invalid confirmation code');
+			}
 		} catch (error) {
-			setError('Ошибка');
+			setError('Invalid confirmation code');
 			console.log(error);
 		} finally {
 			setIsLoading(false);
@@ -64,7 +70,10 @@ export const ConfirmationCode = () => {
 					heading='Congratulations! You have completed your new credit card.'
 					paragraph='Your credit card will arrive soon. Thank you for choosing us!'
 				/>
-				<Button text='View other offers of our bank' />
+				<Button
+					text='View other offers of our bank'
+					onClick={() => navigate('/')}
+				/>
 			</div>
 		);
 	}
@@ -97,7 +106,7 @@ export const ConfirmationCode = () => {
 							/>
 						))}
 					</div>
-					{error && <ErrorMessage text={error} />}
+					{error && <ErrorMessage stylesProps='loan-form-input' text={error} />}
 				</>
 			)}
 		</section>

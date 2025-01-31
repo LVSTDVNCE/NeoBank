@@ -1,9 +1,13 @@
 import { baseApi } from '@api/baseApi';
 import { IOffersProps, IPrescoringFormProps } from 'types';
 
+type TResponse = {
+	data: IOffersProps[];
+};
+
 export const prescoringData = async (processedData: IPrescoringFormProps) => {
 	try {
-		const response: IOffersProps[] = await baseApi(
+		const response: TResponse = await baseApi(
 			'http://localhost:8080/application',
 			{
 				method: 'POST',

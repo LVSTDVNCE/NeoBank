@@ -37,8 +37,8 @@ export const PrescoringForm = () => {
 			};
 
 			const response = await apiLoan.prescoringData(processedData);
-			if (response) {
-				setOffers(response);
+			if (response?.data) {
+				setOffers(response?.data);
 				setIsGetOffers(true);
 			} else {
 				console.error('No response data');

@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, CheckBox, Loader, Modal, StepMessage, Table } from '@ui';
 import { IPaymentScheduleProps, IPaymentScheduleRowProps } from 'types';
 import { apiLoan } from '@api/apiLoan';
 import styles from './PaymentSchedule.module.scss';
+import { useApplicationStore } from 'src/store/ApplicationStore';
 
 type SortDirection = 'asc' | 'desc';
 
 export const PaymentSchedule = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
 	const [isChecked, setIsChecked] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccessful, setIsSuccessful] = useState(false);
+
+	const { clearId, clearStatus } = useApplicationStore();
 
 	const [schedule, setSchedule] = useState<IPaymentScheduleRowProps[] | null>(
 		null
@@ -20,17 +24,14 @@ export const PaymentSchedule = () => {
 		useState<keyof IPaymentScheduleRowProps>('number');
 	const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
+	const navigate = useNavigate();
 	const location = useLocation();
 	const pathSegments = location.pathname.split('/');
 	const applicationId = pathSegments[pathSegments.length - 2];
 
-	const openModal = () => {
-		setIsModalOpen(true);
-	};
-
-	const closeModal = () => {
-		setIsModalOpen(false);
-	};
+	const openModal = () => setIsModalOpen(true);
+	const closeModal = () => setIsModalOpen(false);
+	const closeCancelModal = () => setIsCancelModalOpen(false);
 
 	const getPaymentSchedule = async (id: string) => {
 		try {
@@ -49,6 +50,21 @@ export const PaymentSchedule = () => {
 
 	const handleCheckboxChange = () => {
 		setIsChecked(!isChecked);
+	};
+
+	const handleDeny = async () => {
+		setIsLoading(true);
+		try {
+			await apiLoan.cancelApplication(applicationId);
+			setIsModalOpen(false);
+			setIsCancelModalOpen(true);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setIsLoading(false);
+			clearId();
+			clearStatus();
+		}
 	};
 
 	const handleSubmit = async () => {
@@ -107,50 +123,52 @@ export const PaymentSchedule = () => {
 
 			{schedule ? (
 				<div className={styles.TableWrapper}>
-					<Table styleProps={styles.Table}>
-						<thead className={styles.Table__head}>
-							<tr className={styles.Table__titles}>
-								{[
-									'number',
-									'date',
-									'total Payment',
-									'interest Payment',
-									'debt Payment',
-									'remaining Debt',
-								].map(column => (
-									<th
-										key={column}
-										onClick={() =>
-											handleSort(column as keyof IPaymentScheduleRowProps)
-										}
-										className={styles.Table__titlesText}
-									>
-										{column.toUpperCase()}
-										<span className={styles.Table__titlesIcon}>
-											{sortColumn === column
-												? sortDirection === 'asc'
-													? '▲'
-													: '▼'
-												: '▲'}
-										</span>
-									</th>
-								))}
-							</tr>
-						</thead>
-						<tbody>
-							{sortedSchedule &&
-								sortedSchedule.map(row => (
-									<tr key={row.number} className={styles.Table__row}>
-										<td>{row.number}</td>
-										<td>{row.date}</td>
-										<td>{row.totalPayment.toFixed(2)}</td>
-										<td>{row.interestPayment.toFixed(2)}</td>
-										<td>{row.debtPayment.toFixed(2)}</td>
-										<td>{row.remainingDebt.toFixed(2)}</td>
-									</tr>
-								))}
-						</tbody>
-					</Table>
+					<div className={styles.TableWrapperInner}>
+						<Table styleProps={styles.Table}>
+							<thead className={styles.Table__head}>
+								<tr className={styles.Table__titles}>
+									{[
+										'number',
+										'date',
+										'totalPayment',
+										'interestPayment',
+										'debtPayment',
+										'remainingDebt',
+									].map(column => (
+										<th
+											key={column}
+											onClick={() =>
+												handleSort(column as keyof IPaymentScheduleRowProps)
+											}
+											className={styles.Table__titlesText}
+										>
+											{column.toUpperCase()}
+											<span className={styles.Table__titlesIcon}>
+												{sortColumn === column
+													? sortDirection === 'asc'
+														? '▲'
+														: '▼'
+													: '▲'}
+											</span>
+										</th>
+									))}
+								</tr>
+							</thead>
+							<tbody>
+								{sortedSchedule &&
+									sortedSchedule.map(row => (
+										<tr key={row.number} className={styles.Table__row}>
+											<td>{row.number}</td>
+											<td>{row.date}</td>
+											<td>{row.totalPayment.toFixed(2)}</td>
+											<td>{row.interestPayment.toFixed(2)}</td>
+											<td>{row.debtPayment.toFixed(2)}</td>
+											<td>{row.remainingDebt.toFixed(2)}</td>
+										</tr>
+									))}
+							</tbody>
+						</Table>
+					</div>
 					<div className={styles.Buttons}>
 						<Button text='Deny' stylesProps='DenyButton' onClick={openModal} />
 						<div className={styles.Buttons__sends}>
@@ -171,7 +189,26 @@ export const PaymentSchedule = () => {
 						isOpen={isModalOpen}
 						onClose={closeModal}
 						text='You exactly sure, you want to cancel this application?'
-					/>
+					>
+						<Button text='Deny' stylesProps='DenyButton' onClick={handleDeny} />
+						<Button
+							text='Cancel'
+							onClick={closeModal}
+							stylesProps='SendButton'
+						/>
+					</Modal>
+
+					<Modal
+						isOpen={isCancelModalOpen}
+						onClose={closeCancelModal}
+						text='Your application has been deny!'
+					>
+						<Button
+							text='Go home'
+							stylesProps='SendButton'
+							onClick={() => navigate('/')}
+						/>
+					</Modal>
 				</div>
 			) : (
 				<Loader />

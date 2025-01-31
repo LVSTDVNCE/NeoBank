@@ -23,9 +23,12 @@ export const SigningOfDocuments = () => {
 	const handleSign = async () => {
 		setIsLoading(true);
 		try {
-			await apiLoan.signDocument(applicationId);
-			setIsSuccessful(true);
-			setError(null);
+			const response = await apiLoan.signDocument(applicationId);
+			if (response == 200) {
+				setIsSuccessful(true);
+			} else {
+				setError('Ошибка');
+			}
 		} catch (error) {
 			console.log(error);
 			setError('Произошла ошибка при подписании документов');

@@ -6,6 +6,7 @@
 	align-self: center;
 	justify-self: center;
 	flex-direction: column;
+	text-align: center;
 
 	&__heading {
 		text-align: center;
@@ -20,6 +21,7 @@
 		display: flex;
 		align-self: center;
 		gap: 16px;
+		margin-bottom: 16px;
 	}
 
 	&__input {
