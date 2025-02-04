@@ -7,6 +7,7 @@ type TButtonProps = {
 	stylesProps?: string;
 	onClick?: () => void;
 	disabled?: boolean;
+	ariaLabel?: string;
 };
 
 export const Button: FC<TButtonProps> = ({
@@ -15,12 +16,14 @@ export const Button: FC<TButtonProps> = ({
 	stylesProps,
 	onClick,
 	disabled,
+	ariaLabel,
 }) => {
 	return (
 		<button
 			onClick={onClick}
 			disabled={disabled}
 			className={stylesProps ? styles[stylesProps] : styles.button}
+			aria-label={ariaLabel}
 		>
 			{children}
 			{text}

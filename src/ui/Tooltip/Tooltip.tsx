@@ -13,9 +13,7 @@ export const Tooltip: FC<TTooltipProps> = ({ text, children }) => {
 	return (
 		<div className={styles.tooltipWrapper} {...bind}>
 			{children}
-			<div className={isHover ? styles.tooltipVisible : styles.tooltip}>
-				{text}
-			</div>
+			{isHover && <div className={styles.tooltipVisible}>{text}</div>}
 		</div>
 	);
 };

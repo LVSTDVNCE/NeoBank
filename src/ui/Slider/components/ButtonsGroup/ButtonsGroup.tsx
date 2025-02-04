@@ -6,6 +6,7 @@ type TButtonsGroupProps = {
 	onClick: () => void;
 	disabled: boolean;
 	icon: string;
+	label: string;
 };
 
 export const ButtonsGroup = ({ config }: { config: TButtonsGroupProps[] }) => {
@@ -17,6 +18,7 @@ export const ButtonsGroup = ({ config }: { config: TButtonsGroupProps[] }) => {
 					stylesProps='newsButton'
 					onClick={button.onClick}
 					disabled={button.disabled}
+					ariaLabel={button.label}
 				>
 					<img src={button.icon} alt='arrow-icon' />
 				</Button>

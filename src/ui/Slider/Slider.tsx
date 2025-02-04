@@ -89,6 +89,7 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 				onClick: prevSlide,
 				disabled: currentSlide === 0,
 				icon: left,
+				label: 'Previous slide',
 			},
 			{
 				id: 2,
@@ -100,6 +101,7 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 						? currentSlide === slides.length - 2
 						: currentSlide === slides.length - 1,
 				icon: right,
+				label: 'Next slide',
 			},
 		],
 		[currentSlide, nextSlide, prevSlide, slides.length]
@@ -111,6 +113,7 @@ export const Slider = ({ slides, isLoading }: TSliderProps) => {
 			onTouchStart={handleTouchStart}
 			onTouchMove={handleTouchMove}
 			onTouchEnd={handleTouchEnd}
+			data-testid='slider'
 		>
 			<div className={styles.slider__slidesContainer}>
 				<div

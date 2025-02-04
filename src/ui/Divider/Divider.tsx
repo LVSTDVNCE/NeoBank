@@ -5,5 +5,7 @@ type TDividerProps = {
 };
 
 export const Divider = ({ styleProps }: TDividerProps) => {
-	return <div className={`${styles.Divider}  ${[styleProps]}`} />;
+	return (
+		<div className={`${styles.Divider} ${styleProps}`} data-testid='divider' />
+	);
 };

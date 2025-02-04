@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import styles from './BaseCard.module.scss';
 
 type TBaseCardProps = {
-	children: ReactNode;
+	children?: ReactNode;
 	classNameProps: string;
 };
 

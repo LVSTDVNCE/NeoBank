@@ -17,7 +17,10 @@ export const BurgerMenu = () => {
 			<Button stylesProps='burgerButton' onClick={toggleMenu}>
 				<img src={isOpen ? burgerCross : burgerMenu} alt='burgerMenu' />
 			</Button>
-			<div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
+			<div
+				className={`${styles.menu} ${isOpen ? styles.open : ''}`}
+				data-testid='burger-menu'
+			>
 				<NavBar NavBarItems={HEADER_NAV_ITEMS} />
 				<Button text={'Online Bank'} />
 			</div>

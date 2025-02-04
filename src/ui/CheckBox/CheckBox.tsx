@@ -9,8 +9,16 @@ type TCheckBoxProps = {
 export const CheckBox = ({ text, checked, onChange }: TCheckBoxProps) => {
 	return (
 		<div className={styles.checkbox__wrapper}>
-			<input checked={checked} type='checkbox' onChange={onChange} />
-			<p className={styles.checkbox__text}>{text}</p>
+			<input
+				id='checkbox'
+				checked={checked}
+				type='checkbox'
+				onChange={onChange}
+				data-testid='checkbox'
+			/>
+			<label htmlFor='checkbox' className={styles.checkbox__text}>
+				{text}
+			</label>
 		</div>
 	);
 };

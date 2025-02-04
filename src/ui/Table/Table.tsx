@@ -1,5 +1,4 @@
 import { ReactNode, FC } from 'react';
-import styles from './Table.module.scss';
 
 type TTableProps = {
 	children: ReactNode;
@@ -7,5 +6,5 @@ type TTableProps = {
 };
 
 export const Table: FC<TTableProps> = ({ children, styleProps }) => {
-	return <table className={`${styles.table} ${styleProps}`}>{children}</table>;
+	return <table className={`${styleProps}`}>{children}</table>;
 };
