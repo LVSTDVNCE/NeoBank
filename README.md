@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# NeoBank - Кредитный Конвейер 💵
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-%231572B6.svg?style=for-the-badge&logo=react&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-Currently, two official plugins are available:
+**NeoBank** - это современный кредитный конвейер для оформления кредитных карт онлайн. Проект предоставляет интуитивно понятный интерфейс с пошаговым процессом оформления.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Особенности
 
-## Expanding the ESLint configuration
+- **Главная страница** с информацией о продуктах
+- **Пошаговое оформление** кредитной карты
+- Адаптивный и отзывчивый интерфейс
+- Валидация форм в реальном времени
+- Маршрутизация для пошагового процесса подачи заявки с помощью `React Router`
+- Вывод платежей в таблицу с сортировкой по всем столбцам
+- Кастомная дизайн система
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Быстрый старт
 
-- Configure the top-level `parserOptions` property like this:
+Следуйте этим инструкциям, чтобы запустить проект локально:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/LVSTDVNCE/NeoBank.git
+   ```
+2. Установите зависимости:
+   ```bash
+   npm install
+   ```
+3. Запустите сервер разработки:
+   ```bash
+   npm run dev
+   ```
+4. Откройте http://localhost:3000 в вашем браузере.
